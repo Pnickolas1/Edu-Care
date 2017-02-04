@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Volunteers = sequelize.define('volunteers', {
+    var Volunteer = sequelize.define('Volunteer', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -36,12 +36,6 @@ module.exports = function(sequelize, DataTypes) {
                 notEmpty: true
             }
         },
-        specialty: {
-            type: DataTypes.STRING,
-            validate: {
-                notEmpty: true
-            }
-        },
         bio: {
             type: DataTypes.STRING,
             validate: {
@@ -57,7 +51,18 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW
         }
+    }, {
+        // Method to allow volunteers to have many listins
+        classMethods: {
+            associate: function(models) {
+                // Associating Volunteer with Listing
+                Volunteer.hasMany(models.Listing, {
+                    onDelete: "cascade"
+                });
+            }
+        }
+
     });
 
-    return Volunteers;
+    return Volunteer;
 };
