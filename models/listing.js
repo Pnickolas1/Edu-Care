@@ -21,12 +21,14 @@ module.exports = function(sequelize, DataTypes) {
         },
         createdAt: {
             type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
+            defaultValue: sequelize.literal('NOW()')
         },
         updatedAt: {
             type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
+            defaultValue: sequelize.literal('NOW()')
         }
+    }, {
+        timestamps: true
     }, {
         // Method to allow volunteer to have many listings
         classMethods: {

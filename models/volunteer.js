@@ -22,13 +22,6 @@ module.exports = function(sequelize, DataTypes) {
                 notEmpty: true
             }
         },
-        category: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
-        },
         preferred_city: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -53,12 +46,14 @@ module.exports = function(sequelize, DataTypes) {
         },
         createdAt: {
             type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
+            defaultValue: sequelize.literal('NOW()')
         },
         updatedAt: {
             type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
+            defaultValue: sequelize.literal('NOW()')
         }
+    }, {
+        timestamps: true
     }, {
         // Method to allow volunteers to have many listins
         classMethods: {
