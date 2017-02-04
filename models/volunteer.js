@@ -6,7 +6,15 @@ module.exports = function(sequelize, DataTypes) {
             primaryKey: true,
             allowNull: false
         },
-        volunteer_name: {
+        volunteer_first_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1],
+                notEmpty: true
+            }
+        },
+        volunteer_last_name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
