@@ -24,13 +24,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 // Require the routes set in burger_controller.js
-require('./controllers/_______.js')(app); // Enter controller name(s) in blank. create more as needed
+require('./controllers/volunteers_controller.js')(app); // Enter controller name(s) in blank. create more as needed
 
 // Syncing our sequelize models and then starting our express app
-db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+        console.log("App listening on PORT " + PORT);
+    });
 }).catch(function(err) {
     console.log(err);
 });
