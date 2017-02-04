@@ -28,10 +28,25 @@ module.exports = function(sequelize, DataTypes) {
                 notEmpty: true
             }
         },
-        occupation: {
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1],
+                notEmpty: true
+            }
+        },
+        specialty: {
             type: DataTypes.STRING,
             validate: {
                 notEmpty: true
+            }
+        },
+        bio: {
+            type: DataTypes.STRING,
+            validate: {
+                notEmpty: true,
+                len: [1, 500]
             }
         },
         createdAt: {
