@@ -26,10 +26,7 @@ module.exports = function(app) {
     app.get("/api/all", function(req, res) {
         db.Listing.findAll({
             include: [{
-                model: db.Volunteer,
-                through: {
-                    attributes: ['volunteer_first_name', 'email']
-                }
+                model: db.Volunteer
             }]
         }).then(function(dbRes) {
             // res.render("index", { listings: dbRes });

@@ -28,18 +28,11 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: sequelize.literal('NOW()')
         }
     }, {
-        timestamps: true
-    }, {
         // Method to allow volunteer to have many listings
         classMethods: {
             associate: function(models) {
                 // Associating Volunteer with Listing
-                Listing.belongsTo(models.Volunteer, {
-                    onDelete: "cascade",
-                    foreignKey: {
-                        allowNull: false
-                    }
-                });
+                models.Listing.belongsTo(models.Volunteer);
             }
         }
     });

@@ -53,13 +53,11 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: sequelize.literal('NOW()')
         }
     }, {
-        timestamps: true
-    }, {
         // Method to allow volunteers to have many listins
         classMethods: {
             associate: function(models) {
                 // Associating Volunteer with Listing
-                Volunteer.hasMany(models.Listing, {
+                models.Volunteer.hasMany(models.Listing, {
                     onDelete: "cascade"
                 });
             }
