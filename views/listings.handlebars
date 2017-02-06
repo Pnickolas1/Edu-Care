@@ -1,0 +1,93 @@
+<!-- Page Content goes here -->
+<!-- navbar with tabs -->
+<nav>
+    <div class="nav-wrapper container">
+        <a href="index.html" class="brand-logo">Edu-Care</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="schools.html">Schools</a></li>
+            <li><a href="volunteer.html">Volunteers</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="schools.html">Schools</a></li>
+            <li><a href="volunteer.html">Volunteers</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <div class="row">
+            <h1>Welcome, Schools</h1>
+            <p>Here you can find info on volunteers.</p>
+        </div>
+        <!-- Filter -->
+        <div class="row">
+            <h4>Filter Results</h4>
+            <ul class="collapsible" data-collapsible="expandable">
+                <li>
+                    <div class="collapsible-header">Volunteer Category</div>
+                    <div class="collapsible-body">
+                        <form id="filter-category-form">
+                            <p>
+                                <input type="checkbox" id="panelist" />
+                                <label for="panelist">Panelist</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="lecturer" />
+                                <label for="lecturer">Lecturer</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="judge" />
+                                <label for="judge">Competition Judge</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="career" />
+                                <label for="career">Career Guidance</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="shadowing" />
+                                <label for="shadowing">Job Shadowing</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="general" />
+                                <label for="general">General Volunteering</label>
+                            </p>
+                        </form>
+                        <p>Click on at least one category to filter the results.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">Volunteer Specialty</div>
+                    <div class="collapsible-body">
+                        <form>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">textsms</i>
+                                <input type="text" id="autocomplete-input" class="autocomplete">
+                                <label for="autocomplete-input">Volunteer Specialty</label>
+                            </div>
+                        </form>
+                        <p>Start typing a search term and click on the suggested term which best matches.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Collection of volunteer data -->
+        <div class="row">
+            <ul class="collection">
+                {{#each listing}}
+                <li class="collection-item">
+                    <div>
+                        <h4>Name: <span class="volunteer_name">{{this.volunteer.name}}</span></h4>
+                        <p>Location: <span class="volunteer_location">{{this.volunteer.location}}</span></p>
+                        <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
+                        <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
+                        <p>Bio: <span class="volunteer_bio">{{this.volunteer.bio}}</span></p>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</main>

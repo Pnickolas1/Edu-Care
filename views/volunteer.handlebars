@@ -1,0 +1,122 @@
+<!-- Page Content goes here -->
+<!-- navbar with tabs -->
+<nav class="nav-extended">
+    <div class="nav-wrapper container">
+        <a href="index.html" class="brand-logo">Edu-Care</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="schools.html">Schools</a></li>
+            <li><a href="volunteer.html">Volunteers</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="schools.html">Schools</a></li>
+            <li><a href="volunteer.html">Volunteers</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </div>
+    <div class="nav-content container">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a href="#volunteer-info">Your Information</a></li>
+            <li class="tab"><a href="#volunteer-form">Volunteer Form</a></li>
+            <li class="tab"><a href="#volunteer-listings">Your Current Listings</a></li>
+        </ul>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <h1>Volunteer Dashboard</h1>
+        <!-- volunteer info -->
+        <div class="row" id="volunteer-info">
+            <h2>Your Information</h2>
+            <div>
+                <h4>Name: <span class="volunteer_name">{{volunteer.name}}</span></h4>
+                <p>Location: <span class="volunteer_location">{{volunteer.location}}</span></p>
+                <p>Email: <span class="volunteer_email">{{volunteer.email}}</span></p>
+            </div>
+        </div>
+        <!-- volunteer sign-up form -->
+        <div class="row" id="volunteer-form">
+            <h2>Tell us about yourself.</h2>
+            <p>Edu-care connects schools with volunteers. Please tell us more about yourself.</p>
+            <form class="col s12">
+                <!-- Name -->
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input placeholder="First Name" id="first_name" type="text" class="validate" required>
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Last Name" id="last_name" type="text" class="validate" required>
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input placeholder="example@gmail.com" id="email" type="email" class="validate" required>
+                        <label for="email" data-error="Please enter a valid email address." data-success="Thank you.">Email</label>
+                    </div>
+                </div>
+                <!-- Location -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="e.g. Chicago, IL, USA" id="location" type="text" class="validate" required>
+                        <label for="location">Your Location</label>
+                    </div>
+                </div>
+                <!-- Category -->
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select id="category" required>
+                            <option value="" disabled selected>Volunteer Category</option>
+                            <option value="panelist">Panelist</option>
+                            <option value="lecturer">Lecturer</option>
+                            <option value="judge">Competition Judge</option>
+                            <option value="career">Career Guidance</option>
+                            <option value="shadowing">Job Shadowing</option>
+                            <option value="general">General Volunteering</option>
+                        </select>
+                        <label>Volunteer Category</label>
+                    </div>
+                    <!-- Specialty -->
+                    <div class="input-field col s6">
+                        <input placeholder="e.g. Computer Science" id="specialty" type="text" class="validate" required>
+                        <label for="specialty">Your Specialty</label>
+                    </div>
+                </div>
+                <!-- Bio -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="bio" class="materialize-textarea validate" data-length="500" required></textarea>
+                        <label for="bio">Your Bio</label>
+                    </div>
+                </div>
+                <!-- Submit button -->
+                <button class="btn waves-effect waves-light red accent-2" type="submit" name="action" id="volunteer-form-submit">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+        <!-- volunteer listings -->
+        <div class="row" id="volunteer-listings">
+            <h2>Your Listings.</h2>
+            <p>This is what you shared.</p>
+            <ul class="collection">
+                {{#each listing}}
+                <li class="collection-item">
+                    <div>
+                        <h4>Name: <span class="volunteer_name">{{this.volunteer.name}}</span></h4>
+                        <p>Location: <span class="volunteer_location">{{this.volunteer.location}}</span></p>
+                        <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
+                        <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
+                        <p>Bio: <span class="volunteer_bio">{{this.volunteer.bio}}</span></p>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</main>
