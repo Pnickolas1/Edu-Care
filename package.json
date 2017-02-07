@@ -19,17 +19,16 @@
   "homepage": "https://github.com/a-ashbeck/project-2#readme",
   "dependencies": {
     "body-parser": "^1.16.0",
+    "connect-multiparty": "^2.0.0",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.1",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.0",
     "method-override": "^2.3.7",
     "mysql": "^2.13.0",
-    "sequelize": "^3.30.1",
     "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "passport-local-sequelize": "^0.6.0",
-    "body-parser": "^1.16.0",
-    "connect-multiparty": "^2.0.0",
-    "cookie-parser": "^1.4.3",    
-    "express-session": "^1.15.0"
-
+    "sequelize": "^3.30.1"
   }
 }

@@ -46,11 +46,11 @@ module.exports = function(sequelize, DataTypes) {
         },
         createdAt: {
             type: DataTypes.DATE,
-            defaultValue: sequelize.literal('NOW()')
+           // defaultValue: sequelize.literal('NOW()')
         },
         updatedAt: {
             type: DataTypes.DATE,
-            defaultValue: sequelize.literal('NOW()')
+            //defaultValue: sequelize.literal('NOW()')
         }
     }, {
         // Method to allow volunteers to have many listins

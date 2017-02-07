@@ -20,12 +20,12 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         createdAt: {
-            type: DataTypes.DATE,
-            defaultValue: sequelize.literal('NOW()')
+            type: DataTypes.DATE
+          //  defaultValue: sequelize.literal('NOW()')
         },
         updatedAt: {
-            type: DataTypes.DATE,
-            defaultValue: sequelize.literal('NOW()')
+            type: DataTypes.DATE
+          ///  defaultValue: sequelize.literal('NOW()')
         }
     }, {
         // Method to allow volunteer to have many listings
