@@ -8,9 +8,45 @@ main {
     flex: 1 0 auto;
 }
 
+
+/* Nav bar */
+
 .logo {
     height: 45px;
     width: auto;
     margin-top: 8px;
     margin-right: 3px;
+}
+
+nav {
+    background-color: #1198EA;
+}
+
+
+/*Buttons*/
+
+.btn,
+.btn-large {
+    background-color: #12F489;
+}
+
+
+/*Footer*/
+
+footer.page-footer {
+    background-color: #59B4EA;
+}
+
+
+/*Schools*/
+
+.welcome-schools {
+    background-image: url("../images/welcome-schools.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 410px;
+}
+
+.top-margin {
+    margin-top: 100px;
 }

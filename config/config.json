@@ -1,11 +1,11 @@
 {
     "development": {
         "username": "root",
-        "password": "root",
+        "password": null,
         "database": "edu_care",
         "host": "127.0.0.1",
         "dialect": "mysql",
-        "port": 8889
+        "port": 8889 // caused error in terminal -KS
     },
     "test": {
         "username": "root",

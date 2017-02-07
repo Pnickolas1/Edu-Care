@@ -22,17 +22,17 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-app.use(bodyParser());
+app.use(bodyParser()); // -- caused error in terminal - KS
 app.use(require('connect-multiparty')());
 app.use(cookieParser());
-app.use(session({ secret: 'super-secret' }));
+app.use(session({ secret: 'super-secret' })); // -- caused error in terminal - KS
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next) {
-	if(req.user){
-		console.log(req.user);
-	}
-	next();
+    if (req.user) {
+        console.log(req.user);
+    }
+    next();
 });
 
 
@@ -50,16 +50,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
-// Require the routes set in burger_controller.js
-require('./controllers/passports_controller.js')(app); // Enter controller name(s) in blank. create more as needed
-
-
+// Require the routes in controllers
+require('./controllers/html-routes.js')(app);
+require('./controllers/volunteers_controller.js')(app);
+require('./controllers/passports_controller.js')(app);
 
 // Static directory
 app.use(express.static("/public"));
-
-
-
 
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync().then(function() {

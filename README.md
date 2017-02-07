@@ -1,14 +1,14 @@
 # project-2
 
-This is Project 2 for the NOrthwestern Coding Boot Camp.
+This is Project 2 for the Northwestern Coding Boot Camp.
 
-The application works as a means to pair individuals looking to volunteer to bring their skills and expertise to schools that are looking for a helping hand.
+Edu-Care pairs individuals looking to volunteer their skills and expertise to schools that are looking for a helping hand.
 
-This includes:
-	* Speeches
-	* Seminars
-	* Presentation Reviewers/Judges
+These volunteer opportunities include:
+	* Speaker
+	* Panelist
+	* Presentation Reviewers/Competition Judges
 	* Career Guidance
-	* Handywork
+	* Job Shadowing
 
 The application can be viewed in production [**here**](https://gentle-atoll-10010.herokuapp.com/) on Heroku.

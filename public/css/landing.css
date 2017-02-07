@@ -27,24 +27,6 @@ hr {
 }
 
 
-/* Nav bar */
-
-.logo {
-    height: 45px;
-    width: auto;
-    margin-top: 8px;
-    margin-right: 3px;
-}
-
-nav {
-    background-color: #6E7FDD;
-}
-
-#sign-up-btn {
-    background-color: #1BDDBE;
-}
-
-
 /* Top banner */
 
 #top-banner {
@@ -165,6 +147,7 @@ nav {
 .margin-top {
     margin-top: 50px;
 }
+
 
 .checks {
     list-style-image: url("../images/checkmark.png");
