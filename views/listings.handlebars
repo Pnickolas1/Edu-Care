@@ -2,16 +2,17 @@
 <!-- navbar with tabs -->
 <nav>
     <div class="nav-wrapper container">
-        <a href="index.html" class="brand-logo">Edu-Care</a>
+        <img src="images/logo.png" alt="logo" class="logo">
+        <a href="/" class="brand-logo">Edu-Care</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="schools.html">Schools</a></li>
-            <li><a href="volunteer.html">Volunteers</a></li>
+            <li><a href="/schools">Schools</a></li>
+            <li><a href="/become-a-volunteer">Volunteers</a></li>
             <li><a href="#">Login</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-            <li><a href="schools.html">Schools</a></li>
-            <li><a href="volunteer.html">Volunteers</a></li>
+            <li><a href="/schools">Schools</a></li>
+            <li><a href="/become-a-volunteer">Volunteers</a></li>
             <li><a href="#">Login</a></li>
         </ul>
     </div>
@@ -76,14 +77,14 @@
         <!-- Collection of volunteer data -->
         <div class="row">
             <ul class="collection">
-                {{#each listing}}
+                {{#each listings}}
                 <li class="collection-item">
                     <div>
-                        <h4>Name: <span class="volunteer_name">{{this.volunteer.name}}</span></h4>
-                        <p>Location: <span class="volunteer_location">{{this.volunteer.location}}</span></p>
+                        <h4>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h4>
+                        <p>Location: <span class="volunteer_location">{{this.Volunteer.preferred_city}}</span></p>
                         <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
                         <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
-                        <p>Bio: <span class="volunteer_bio">{{this.volunteer.bio}}</span></p>
+                        <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
                     </div>
                 </li>
                 {{/each}}

@@ -36,6 +36,14 @@ hr {
     margin-right: 3px;
 }
 
+nav {
+    background-color: #6E7FDD;
+}
+
+#sign-up-btn {
+    background-color: #1BDDBE;
+}
+
 
 /* Top banner */
 
@@ -45,6 +53,7 @@ hr {
     background-image: url("../images/listening.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    color: white;
 }
 
 .top-text {
@@ -53,6 +62,14 @@ hr {
 
 #sign-up-btn {
     margin-top: 10px;
+}
+
+#panel {
+    background: rgba(122, 130, 136, 0.4);
+    width: 70%;
+    margin-left: 200px;
+    height: 300px;
+    border-radius: 25px;
 }
 
 

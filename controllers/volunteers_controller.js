@@ -22,16 +22,38 @@ module.exports = function(app) {
     // ====== Listing Routes ====== //
 
     // GET route to show all listings
-
-    app.get("/api/all", function(req, res) {
+    app.get("/api/listings", function(req, res) {
         db.Listing.findAll({
             include: [{
                 model: db.Volunteer
             }]
         }).then(function(dbRes) {
-            // res.render("index", { listings: dbRes });
-            res.send(dbRes);
+            res.render("listings", { listings: dbRes });
         });
+    });
+
+    // GET route to show volunteer info and listings
+    app.get("/api/volunteer/:id", function(req, res) {
+        var listingPromise = db.Listing.findAll({
+            where: {
+                VolunteerId: req.params.id
+            },
+            include: [{
+                model: db.Volunteer
+            }]
+        });
+        var volunteerPromise = db.Volunteer.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+
+        Promise.all([listingPromise, volunteerPromise])
+            .then(function(results) {
+                var listingResult = results[0];
+                var volunteerResult = results[1];
+                res.render("volunteer", { listings: listingResult, volunteer: volunteerResult });
+            });
     });
 
     //POST route to create new listing
