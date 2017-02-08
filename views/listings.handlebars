@@ -28,31 +28,31 @@
             <h4>Filter Results</h4>
             <ul class="collapsible" data-collapsible="expandable">
                 <li>
-                    <div class="collapsible-header">Volunteer Category</div>
+                    <div class="collapsible-header" id="category-header">Volunteer Category</div>
                     <div class="collapsible-body">
                         <form id="filter-category-form">
                             <p>
-                                <input type="checkbox" id="panelist" />
+                                <input type="checkbox" id="panelist" data-category="panelist" />
                                 <label for="panelist">Panelist</label>
                             </p>
                             <p>
-                                <input type="checkbox" id="lecturer" />
+                                <input type="checkbox" id="lecturer" data-category="lecturer" />
                                 <label for="lecturer">Lecturer</label>
                             </p>
                             <p>
-                                <input type="checkbox" id="judge" />
+                                <input type="checkbox" id="judge" data-category="judge"/>
                                 <label for="judge">Competition Judge</label>
                             </p>
                             <p>
-                                <input type="checkbox" id="career" />
+                                <input type="checkbox" id="career" data-category="career"/>
                                 <label for="career">Career Guidance</label>
                             </p>
                             <p>
-                                <input type="checkbox" id="shadowing" />
+                                <input type="checkbox" id="shadowing" data-category="shadowing"/>
                                 <label for="shadowing">Job Shadowing</label>
                             </p>
                             <p>
-                                <input type="checkbox" id="general" />
+                                <input type="checkbox" id="general" data-category="general"/>
                                 <label for="general">General Volunteering</label>
                             </p>
                         </form>
@@ -78,10 +78,10 @@
         <div class="row">
             <ul class="collection">
                 {{#each listings}}
-                <li class="collection-item">
+                <li class="collection-item item-{{this.category}}" data-category="{{this.category}}">
                     <div>
                         <h4>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h4>
-                        <p>Location: <span class="volunteer_location">{{this.Volunteer.preferred_city}}</span></p>
+                        <p>Location: <span class="volunteer_preferred_city">{{this.Volunteer.preferred_city}}</span></p>
                         <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
                         <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
                         <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
@@ -92,3 +92,28 @@
         </div>
     </div>
 </main>
+<!-- Footer -->
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Edu-care</h5>
+                <p class="grey-text text-lighten-4">Edu-care connects schools with volunteers.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Learn More</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Edu-care Github</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 Team Edu-care
+        </div>
+    </div>
+</footer>
+<!-- Materialize initialization -->
+<script type="text/javascript" src="/js/initialization.js"></script>
+<script type="text/javascript" src="/js/filter.js"></script>

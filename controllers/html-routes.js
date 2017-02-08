@@ -14,6 +14,10 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname + "/../public/become-a-volunteer.html"));
     });
 
+    app.get("/register-new-volunteer", function(req, res) {
+        res.sendFile(path.join(__dirname + "/../public/new-volunteer-form.html"));
+    });
+
     app.get("/listings", function(req, res) {
         res.redirect("/api/listings");
     });
