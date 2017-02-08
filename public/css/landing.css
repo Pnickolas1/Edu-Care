@@ -13,9 +13,6 @@ main {
     margin: 0;
 }
 
-hr {
-    width: 170px;
-}
 
 .p-thirds {
     padding-left: 30px;
@@ -32,10 +29,9 @@ hr {
 #top-banner {
     height: 500px;
     padding-top: 0;
-    background-image: url("../images/listening.jpg");
+    background-image: url("../images/listening-lighter.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
 }
 
 .top-text {
@@ -46,13 +42,14 @@ hr {
     margin-top: 10px;
 }
 
-#panel {
+
+/*#panel {
     background: rgba(122, 130, 136, 0.4);
     width: 70%;
     margin-left: 200px;
     height: 300px;
     border-radius: 25px;
-}
+}*/
 
 
 /* Helping Students Banner */
@@ -147,7 +144,6 @@ hr {
 .margin-top {
     margin-top: 50px;
 }
-
 
 .checks {
     list-style-image: url("../images/checkmark.png");
