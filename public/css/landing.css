@@ -13,13 +13,12 @@ main {
     margin: 0;
 }
 
-
 .p-thirds {
     padding-left: 30px;
     padding-right: 30px;
 }
 
-.margin-top-less {
+.margin-top-30 {
     margin-top: 30px;
 }
 
@@ -141,9 +140,10 @@ main {
     margin-right: 100px;
 }
 
-.margin-top {
+.margin-top-50 {
     margin-top: 50px;
 }
+
 
 .checks {
     list-style-image: url("../images/checkmark.png");

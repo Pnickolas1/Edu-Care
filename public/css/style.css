@@ -14,12 +14,90 @@ main {
     height: 100%;
 }
 
+.text-container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 hr {
     width: 170px;
 }
 
-.margin-100 {
+.margin-top-130 {
+    margin-top: 130px;
+}
+
+.margin-top-100 {
     margin-top: 100px;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.margin-left-290 {
+    margin-left: 290px;
+}
+
+.margin-left-110 {
+    margin-left: 110px;
+}
+
+.margin-left-80 {
+    margin-left: 80px;
+}
+
+.margin-left-50 {
+    margin-left: 50px;
+}
+
+.margin-right-50 {
+    margin-right: 50px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.p-large-text {
+    font-size: 17px;
+}
+
+.icon {
+    height: 50px;
+    width: auto;
+}
+
+.icon-sm {
+    height: 25px;
+    width: auto;
+}
+
+.panel-transparent {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 25px;
+    padding-top: 30px;
+    padding-bottom: 2px;
+}
+
+.panel {
+    background: white;
+    border-radius: 25px;
+    padding: 50px;
+}
+
+.checks {
+    list-style-image: url("../images/checkmark.png");
+    margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 
@@ -54,7 +132,7 @@ nav {
 /*Footer*/
 
 footer.page-footer {
-    background-color: #59B4EA;
+    background-color: #a9a9a9;
 }
 
 
@@ -65,10 +143,32 @@ footer.page-footer {
     background-size: cover;
     background-repeat: no-repeat;
     height: 450px;
+    margin-bottom: 0;
 }
 
-.top-margin {
-    margin-top: 130px;
+.pencils-background {
+    background-image: url("../images/pencils.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 450px;
+    margin-bottom: 0;
+}
+
+.desk-background {
+    background-image: url("../images/schooldesk.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 450px;
+    margin-bottom: 0;
+}
+
+.listings-header {
+    background-image: url("../images/science-volunteer.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 450px;
+    color: white;
+    margin-bottom: 0;
 }
 
 
@@ -100,8 +200,26 @@ footer.page-footer {
     background-repeat: no-repeat;
     height: 400px;
     color: #f8f8f8;
+    margin-bottom: 0;
+}
+
+.hands-background {
+    background-image: url("../images/volunteer-hands.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 450px;
+    margin-bottom: 0;
+}
+
+.white-background {
+    background: white;
+    margin-bottom: 0;
 }
 
 .card-row {
     padding: 30px;
+}
+
+#new-volunteer-form {
+    padding: 20px;
 }

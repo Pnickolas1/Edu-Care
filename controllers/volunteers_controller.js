@@ -66,25 +66,26 @@ module.exports = function(app) {
         });
     });
 
-    // PUT route for updating a listing
-    app.put("/api/volunteer/listing/:id", function(req, res) {
-        db.Listing.update({ listing: req.body }, {
-            where: {
-                id: req.body.id
-            }
-        }).then(function(dbPost) {
-            res.redirect("/api/all");
-        });
-    });
+    // // PUT route for updating a listing
+    // app.put("/api/volunteer/listing/:id", function(req, res) {
+    //     db.Listing.update({ listing: req.body }, {
+    //         where: {
+    //             id: req.body.id
+    //         }
+    //     }).then(function(dbPost) {
+    //         res.redirect("/api/all");
+    //     });
+    // });
 
-    // DELETE route for a listing
-    app.delete("/api/volunteer/listing/:id", function(req, res) {
-        db.Listing.destroy({
-            where: {
-                id: req.body.id
-            }
-        }).then(function(dbPost) {
-            res.redirect("api/all");
-        });
-    });
+    // // DELETE route for a listing
+    // app.delete("/api/volunteer/listing/:id", function(req, res) {
+    //     db.Listing.destroy({
+    //         where: {
+    //             id: req.body.id
+    //         }
+    //     }).then(function(dbPost) {
+    //         res.redirect("api/all");
+    //     });
+    // });
+
 };

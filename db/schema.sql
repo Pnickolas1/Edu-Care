@@ -1,5 +1,5 @@
--- Create burgers_db database
+-- Create database
 CREATE DATABASE edu_care;
 
--- Use the burger_db database
+-- Use the database
 USE edu_care;
