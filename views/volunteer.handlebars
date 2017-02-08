@@ -19,7 +19,7 @@
     <div class="nav-content container">
         <ul class="tabs tabs-transparent">
             <li class="tab"><a href="#volunteer-info">Your Information</a></li>
-            <li class="tab"><a href="#volunteer-form">Volunteer Form</a></li>
+            <li class="tab"><a href="#new-listing">Add A Listing</a></li>
             <li class="tab"><a href="#volunteer-listings">Your Current Listings</a></li>
         </ul>
     </div>
@@ -32,43 +32,16 @@
             <h2>Your Information</h2>
             <div>
                 <h4>Name: <span class="volunteer_name">{{volunteer.volunteer_first_name}} {{volunteer.volunteer_last_name}}</span></h4>
-                <p>Location: <span class="volunteer_location">{{volunteer.preferred_city}}</span></p>
+                <p>Location: <span class="volunteer_preferred_city">{{volunteer.preferred_city}}</span></p>
                 <p>Email: <span class="volunteer_email">{{volunteer.email}}</span></p>
                 <p>Bio: <span class="volunteer_bio">{{volunteer.bio}}</span></p>
             </div>
         </div>
-        <!-- volunteer sign-up form -->
-        <div class="row" id="volunteer-form">
-            <h2>Tell us about yourself.</h2>
+        <!-- new listing form -->     
+        <div class="row" id='new-listing'>
+            <h2>Add a New Listing.</h2>
             <p>Edu-care connects schools with volunteers. Please tell us more about yourself.</p>
-            <form class="col s12">
-                <!-- Name -->
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input placeholder="First Name" id="first_name" type="text" class="validate" required>
-                        <label for="first_name">First Name</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input placeholder="Last Name" id="last_name" type="text" class="validate" required>
-                        <label for="last_name">Last Name</label>
-                    </div>
-                </div>
-                <!-- Email -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">email</i>
-                        <input placeholder="example@gmail.com" id="email" type="email" class="validate" required>
-                        <label for="email" data-error="Please enter a valid email address." data-success="Thank you.">Email</label>
-                    </div>
-                </div>
-                <!-- Location -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input placeholder="e.g. Chicago, IL, USA" id="location" type="text" class="validate" required>
-                        <label for="location">Your Location</label>
-                    </div>
-                </div>
+            <form class="col s12" id="new-listing-form">
                 <!-- Category -->
                 <div class="row">
                     <div class="input-field col s6">
@@ -89,19 +62,13 @@
                         <label for="specialty">Your Specialty</label>
                     </div>
                 </div>
-                <!-- Bio -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="bio" class="materialize-textarea validate" data-length="500" required></textarea>
-                        <label for="bio">Your Bio</label>
-                    </div>
-                </div>
                 <!-- Submit button -->
-                <button class="btn waves-effect waves-light red accent-2" type="submit" name="action" id="volunteer-form-submit">Submit
+                <button class="btn waves-effect waves-light red accent-2" type="submit" id="listing-form-submit">Submit
                     <i class="material-icons right">send</i>
                 </button>
             </form>
-        </div>
+        </div>   
+        
         <!-- volunteer listings -->
         <div class="row" id="volunteer-listings">
             <h2>Your Listings.</h2>
@@ -122,3 +89,28 @@
         </div>
     </div>
 </main>
+<!-- Footer -->
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Edu-care</h5>
+                <p class="grey-text text-lighten-4">Edu-care connects schools with volunteers.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Learn More</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Edu-care Github</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 Team Edu-care
+        </div>
+    </div>
+</footer>
+<!-- Materialize initialization -->
+<script type="text/javascript" src="/js/initialization.js"></script>
+<script type="text/javascript" src="/js/newListingForm.js"></script>
