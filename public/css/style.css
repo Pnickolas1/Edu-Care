@@ -161,6 +161,14 @@ footer.page-footer {
 }
 
 
+/*Category Cards*/
+
+.card-title {
+    background: rgba(122, 130, 136, 0.7);
+    width: 100%;
+}
+
+
 /*Schools*/
 
 .welcome-schools {
@@ -209,7 +217,7 @@ footer.page-footer {
 }
 
 .fill-out {
-    height: 500px;
+    height: 450px;
     background: white;
     margin-bottom: 0;
 }
@@ -249,6 +257,20 @@ footer.page-footer {
     padding: 20px;
 }
 
+.span-text {
+    font-size: 15px;
+    padding-left: 20px;
+}
+
+.archive {
+    color: gray;
+    font-style: italic;
+}
+
+.a-activate {
+    color: green;
+}
+
 
 /* Style for the sign in box */
 
@@ -259,10 +281,16 @@ footer.page-footer {
 }
 
 .listings {
-    width: 75%;
+    width: 98%;
 }
 
 #new-listing-form {
     margin-top: 30px;
     margin-bottom: 20px;
+}
+
+.sign-in-background {
+    background: url("../images/students-volunteer.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }

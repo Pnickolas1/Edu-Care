@@ -80,12 +80,17 @@
             <ul class="collection margin-left-50 margin-right-50">
                 {{#each listings}}
                 <li class="collection-item item-{{this.category}}" data-category="{{this.category}}">
-                    <div>
-                        <h4>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h4>
-                        <p>Location: <span class="volunteer_preferred_city">{{this.Volunteer.preferred_city}}</span></p>
-                        <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
-                        <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
-                        <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
+                    <div class="row">
+                        <div class="col s3 m3">
+                            <img src="/images/user.png" height="200px" alt="User">
+                        </div>
+                        <div class="col s9 m9">
+                            <h5>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h5>
+                            <p>Location: <span class="volunteer_preferred_city">{{this.Volunteer.preferred_city}}</span></p>
+                            <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
+                            <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
+                            <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
+                        </div>
                     </div>
                 </li>
                 {{/each}}

@@ -75,43 +75,42 @@
         </div>   
         
         <!-- volunteer listings -->
-        <div class="row panel" id="volunteer-listings">
-            <div class="col s12 m6">
+        <div id="volunteer-listings">
+            <div class="row panel">
                 <h4>Active Listings</h4>
                 <ul class="collection listings">
                     {{#each listings}}
                     {{#if this.isActive}}
                     <li class="collection-item">
                         <div>
-                            <h5>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h5>
-                            <p>Location: <span class="volunteer_location">{{this.Volunteer.preferred_city}}</span></p>
-                            <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
-                            <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
-                            <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
+                            <img src="/images/green-check.png" alt="Check" height="20px" class="circle">
+                            <span class="volunteer_location span-text">Preferred City: {{this.Volunteer.preferred_city}}</span>
+                            <span class="volunteer_category span-text">Category: {{this.category}}</span>
+                            <span class="volunteer_specialty span-text">Specialty: {{this.specialty}}</span>
+                            <span class="span-text right"><a href="">Archive</a></span>
                         </div>
                     </li>
                     {{/if}}
                     {{/each}}
                 </ul>
             </div>
-            <div class="col s12 m6">
+            <div class="row panel">
                 <h4>Archived Listings</h4>
                 <ul class="collection listings">
                     {{#each listings}}
                     {{#unless this.isActive}}
-                    <li class="collection-item">
+                    <li class="collection-item archive">
                         <div>
-                            <h5>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h5>
-                            <p>Location: <span class="volunteer_location">{{this.Volunteer.preferred_city}}</span></p>
-                            <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
-                            <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
-                            <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
+                            <span class="volunteer_location span-text">Preferred City: {{this.Volunteer.preferred_city}}</span>
+                            <span class="volunteer_category span-text">Category: {{this.category}}</span>
+                            <span class="volunteer_specialty span-text">Specialty: {{this.specialty}}</span>
+                            <span class="span-text right"><a class="a-activate" href="">Activate</a></span>
                         </div>
                     </li>
                     {{/unless}}
                     {{/each}}
                 </ul>
-            </div>
+            </div>  
         </div>
     </div>
 </main>
