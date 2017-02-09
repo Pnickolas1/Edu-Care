@@ -2,7 +2,7 @@
 <!-- navbar with tabs -->
 <nav class="nav-extended">
     <div class="nav-wrapper container">
-        <img src="../images/logo.png" alt="logo" class="logo">
+        <img src="/images/logo.png" alt="logo" class="logo">
         <a href="/" class="brand-logo">Edu-Care</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -25,22 +25,27 @@
     </div>
 </nav>
 <main>
-    <div class="container">
-        <h1>Volunteer Dashboard</h1>
+    <div class="container margin-left-110">
+        <h1 class="h1-small">Your Account</h1>
         <!-- volunteer info -->
-        <div class="row" id="volunteer-info">
-            <h2>Your Information</h2>
-            <div>
-                <h4>Name: <span class="volunteer_name">{{volunteer.volunteer_first_name}} {{volunteer.volunteer_last_name}}</span></h4>
-                <p>Location: <span class="volunteer_preferred_city">{{volunteer.preferred_city}}</span></p>
-                <p>Email: <span class="volunteer_email">{{volunteer.email}}</span></p>
-                <p>Bio: <span class="volunteer_bio">{{volunteer.bio}}</span></p>
+        <div class="row panel" id="volunteer-info">
+            <h4>Account</h4>
+            <hr class="full-hr">
+            <div class="row">
+                <div class="col s3 m3">
+                    <img src="/images/user.png" height="200px" alt="User">
+                </div>
+                <div class="col s9 m9">
+                    <h5><i class="material-icons">perm_identity</i><span class="volunteer_name">{{volunteer.volunteer_first_name}} {{volunteer.volunteer_last_name}}</span></h5>
+                    <p>Preferred City: <span class="volunteer_preferred_city">{{volunteer.preferred_city}}</span></p>
+                    <p>Email: <span class="volunteer_email">{{volunteer.email}}</span></p>
+                    <p>Bio: <span class="volunteer_bio">{{volunteer.bio}}</span></p>
+                </div>
             </div>
         </div>
         <!-- new listing form -->     
-        <div class="row" id='new-listing'>
-            <h2>Add a New Listing.</h2>
-            <p>Edu-care connects schools with volunteers. Please tell us more about yourself.</p>
+        <div class="row panel" id='new-listing'>
+            <h4>Add New Listing</h4>
             <form class="col s12" id="new-listing-form">
                 <!-- Category -->
                 <div class="row">
@@ -63,29 +68,50 @@
                     </div>
                 </div>
                 <!-- Submit button -->
-                <button class="btn waves-effect waves-light red accent-2" type="submit" id="listing-form-submit">Submit
+                <button class="btn waves-effect waves-light" type="submit" id="listing-form-submit">Submit
                     <i class="material-icons right">send</i>
                 </button>
             </form>
         </div>   
         
         <!-- volunteer listings -->
-        <div class="row" id="volunteer-listings">
-            <h2>Your Listings.</h2>
-            <p>This is what you shared.</p>
-            <ul class="collection">
-                {{#each listings}}
-                <li class="collection-item">
-                    <div>
-                        <h4>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h4>
-                        <p>Location: <span class="volunteer_location">{{this.Volunteer.preferred_city}}</span></p>
-                        <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
-                        <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
-                        <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
-                    </div>
-                </li>
-                {{/each}}
-            </ul>
+        <div class="row panel" id="volunteer-listings">
+            <div class="col s12 m6">
+                <h4>Active Listings</h4>
+                <ul class="collection listings">
+                    {{#each listings}}
+                    {{#if this.isActive}}
+                    <li class="collection-item">
+                        <div>
+                            <h5>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h5>
+                            <p>Location: <span class="volunteer_location">{{this.Volunteer.preferred_city}}</span></p>
+                            <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
+                            <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
+                            <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
+                        </div>
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="col s12 m6">
+                <h4>Archived Listings</h4>
+                <ul class="collection listings">
+                    {{#each listings}}
+                    {{#unless this.isActive}}
+                    <li class="collection-item">
+                        <div>
+                            <h5>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h5>
+                            <p>Location: <span class="volunteer_location">{{this.Volunteer.preferred_city}}</span></p>
+                            <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
+                            <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
+                            <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
+                        </div>
+                    </li>
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
         </div>
     </div>
 </main>
