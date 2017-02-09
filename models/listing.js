@@ -19,6 +19,10 @@ module.exports = function(sequelize, DataTypes) {
                 notEmpty: true
             }
         },
+        isActive: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        },
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: sequelize.literal('NOW()')
