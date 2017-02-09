@@ -29,12 +29,12 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/schools">Schools</a></li>
                 <li><a href="/become-a-volunteer">Volunteers</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="signin">Login</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="/schools">Schools</a></li>
                 <li><a href="/become-a-volunteer">Volunteers</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="signin">Login</a></li>
             </ul>
         </div>
     </nav>
@@ -46,27 +46,17 @@
             </div>
             <!-- Registration form -->
             <div class="row section fill-out">
-                <form class="col s12" id="volunteer-form">
-                    <h2 class="center-align">Fill Out Your Details</h2>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                        </div>
-                    </div>
+                <form method='post' action='/register' class="col s12" id="volunteer-form">
+                    <h2 class="center-align">Create an Account</h2>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
+                            <input id="email" name="username" type="email" class="validate">
                             <label for="email">Email</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
+                            <input id="password" type="password" name="password" class="validate">
                             <label for="password">Password</label>
                         </div>
                     </div>
