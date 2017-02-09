@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "tedward!!!",
+        "password": null,
         "database": "edu_care",
         "host": "127.0.0.1",
         "dialect": "mysql"

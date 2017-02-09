@@ -20,7 +20,7 @@ module.exports = function(app) {
                 return res.send(err);
             }
 
-            res.json(req.body);
+            res.redirect("/signin");
 
         });
     });
@@ -36,6 +36,6 @@ module.exports = function(app) {
             console.log('test this');
             // If this function gets called, authentication was successful.
             // `req.user` contains the authenticated user.
-            res.redirect("/success.html");
+            res.redirect("/api/volunteer/:id");
         });
 };
