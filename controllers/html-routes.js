@@ -25,4 +25,5 @@ module.exports = function(app) {
     app.get("/listings", function(req, res) {
         res.redirect("/api/listings");
     });
+
 };
