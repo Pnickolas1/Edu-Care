@@ -9,11 +9,11 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
 var User = db.User;
-// ROUTES
+
+// Passport Routes
 module.exports = function(app) {
 
-
-app.post('/register', function(req,res) {
+    app.post('/register', function(req, res) {
         User.register(req.body.username, req.body.password, function(err, account) {
             if (err) {
                 console.log(err);
@@ -23,24 +23,19 @@ app.post('/register', function(req,res) {
             res.json(req.body);
 
         });
-});
+    });
 
+    app.post('/login', function(req, res, next) {
+            console.log(req.body);
 
-app.post('/login', function(req,res, next){
-    console.log(req.body);
+            next();
 
-    next();
-
-},
-  passport.authenticate('local'),
-  function(req, res) {
-    console.log('test this');
-    // If this function gets called, authentication was successful.
-    // `req.user` contains the authenticated user.
-    res.redirect("/success.html");
-  });
-
-
-
-
+        },
+        passport.authenticate('local'),
+        function(req, res) {
+            console.log('test this');
+            // If this function gets called, authentication was successful.
+            // `req.user` contains the authenticated user.
+            res.redirect("/success.html");
+        });
 };
