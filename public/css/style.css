@@ -62,6 +62,10 @@ hr {
     margin-left: 50px;
 }
 
+.margin-left-40 {
+    margin-left: 40px;
+}
+
 .margin-right-50 {
     margin-right: 50px;
 }
@@ -116,12 +120,6 @@ hr {
     padding-top: 5px;
     padding-bottom: 10px;
     width: 85%;
-}
-
-.checks {
-    list-style-image: url("../images/checkmark.png");
-    margin-bottom: 20px;
-    margin-top: 40px;
 }
 
 .h1-small {
@@ -183,15 +181,18 @@ footer.page-footer {
 
 #helping-banner {
     background: #f8f8f8;
-    height: 450px;
+    height: 500px;
+    margin: 0;
+    padding: 0;
 }
 
 #top-banner {
     height: 500px;
-    padding-top: 0;
     background-image: url("../images/listening-lighter.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
 }
 
 #works-banner {
@@ -200,6 +201,7 @@ footer.page-footer {
     background-repeat: no-repeat;
     color: white;
     height: 400px;
+    padding: 0;
 }
 
 #expert-background {
@@ -207,14 +209,54 @@ footer.page-footer {
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
+    margin-top: 0;
 }
 
 #experts-banner {
     height: 417px;
+    padding: 0;
+    margin: 0;
+}
+
+#experts-text {
+    padding: 20px;
+    margin-top: 10px;
 }
 
 .p-text {
     font-size: 20px;
+}
+
+.p-thirds {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#all-banner {
+    padding: 0;
+    margin: 0;
+    height: 440px;
+    background: #f8f8f8;
+}
+
+#all-title {
+    margin-top: 40px;
+}
+
+.checks {
+    list-style-image: url("../images/checkmark.png");
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+#officer-img {
+    height: 440px;
+}
+
+#officer {
+    padding: 0;
+    margin: 0;
+    height: 440px;
 }
 
 
@@ -352,15 +394,40 @@ footer.page-footer {
     background-repeat: no-repeat;
 }
 
+@media only screen and (max-width: 1000px) {
+    .margin-left-80 {
+        margin-left: 60px;
+    }
+}
+
 @media only screen and (max-width: 890px) {
     .h4 {
         font-size: 30px;
+        margin-top: 0;
     }
     .h2 {
         font-size: 30px;
     }
     .p-text {
         font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 805px) {
+    .margin-top-media-805 {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 785px) {
+    .h5 {
+        font-size: 17px;
+    }
+    .margin-top-media-785 {
+        margin-top: 20px;
+    }
+    .hands-background {
+        height: 100%;
     }
 }
 
@@ -373,6 +440,33 @@ footer.page-footer {
     }
     .globe-img {
         height: 350px;
+    }
+    .h4 {
+        font-size: 25px;
+    }
+    #helping-banner {
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #experts-banner {
+        height: 100%;
+    }
+    #expert-background {
+        height: 400px;
+    }
+    #works-banner {
+        padding-top: 0;
+        height: 100%;
+        padding-bottom: 20px;
+    }
+    .margin-top-media-600 {
+        margin-top: 30px;
+    }
+    .margin-top-media-785 {
+        margin-top: 5px;
+        margin-bottom: 20px;
     }
 }
 
