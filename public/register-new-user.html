@@ -41,20 +41,27 @@
     <main class="container">
         <!-- volunteer sign-up form -->
         <div class="row">
-            <h2 class="margin-left-110">Create an Account</h2>
-            <p class="margin-left-110">Volunteers, create an account here to start posting.</p>
             <div class="col s1 m1"></div>
-            <div class="row section fill-out" id="create-account">
-                <form method='post' action='/register' class="col s12" id="volunteer-form">
-                    <h2 class="center-align">Create an Account</h2>
+            <div class="col s10 m10">
+                <h2>Create an Account</h2>
+                <p>Volunteers, create an account here to start posting.</p>
+            </div>
+            <div class="col s1 m1"></div>
+        </div>
+        <div class="row">
+            <div class="col s1 m1"></div>
+            <div class="col s10 m10 panel">
+                <form class="padding-bottom-30" method='post' action='/register' id="volunteer-form">
                     <div class="row">
                         <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
                             <input id="email" name="username" type="email" class="validate">
                             <label for="email">Email</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
+                            <i class="material-icons prefix">lock</i>
                             <input id="password" type="password" name="password" class="validate">
                             <label for="password">Password</label>
                         </div>

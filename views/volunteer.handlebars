@@ -25,94 +25,153 @@
     </div>
 </nav>
 <main>
-    <div class="container margin-left-110">
-        <h1 class="h1-small">Your Account</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col s1 m1"></div>
+            <div class="col s10 m10">
+                <h1 class="h1-small">Your Account</h1>
+            </div>
+            <div class="col s1 m1"></div>
+        </div>
         <!-- volunteer info -->
-        <div class="row panel" id="volunteer-info">
-            <h4>Account</h4>
-            <hr class="full-hr">
-            <div class="row">
-                <div class="col s3 m3">
-                    <img src="/images/user.png" height="200px" alt="User">
-                </div>
-                <div class="col s9 m9">
-                    <h5><i class="material-icons">perm_identity</i><span class="volunteer_name">{{volunteer.volunteer_first_name}} {{volunteer.volunteer_last_name}}</span></h5>
-                    <p>Preferred City: <span class="volunteer_preferred_city">{{volunteer.preferred_city}}</span></p>
-                    <p>Email: <span class="volunteer_email">{{volunteer.email}}</span></p>
-                    <p>Bio: <span class="volunteer_bio">{{volunteer.bio}}</span></p>
+        <div class="row" id="volunteer-info">
+            <div class="col s12 m12">
+                <div class="row">
+                    <div class="col s1 m1"></div>
+                    <div class="col s10 m10 panel">
+                        <h4>Account</h4>
+                        <hr class="full-hr">
+                        <div class="row">
+                            <div class="col s12 m4">
+                                <img src="/images/user.png" height="200px" alt="User">
+                            </div>
+                            <div class="col s12 m5">
+                                <h5><i class="material-icons">perm_identity</i><span class="volunteer_name">{{volunteer.volunteer_first_name}} {{volunteer.volunteer_last_name}}</span></h5>
+                                <p>Preferred City: <span class="volunteer_preferred_city">{{volunteer.preferred_city}}</span></p>
+                                <p>Email: <span class="volunteer_email">{{volunteer.email}}</span></p>
+                                <p>Bio: <span class="volunteer_bio">{{volunteer.bio}}</span></p>
+                            </div>
+                            <div class="col s12 m3">
+                                <a class="waves-effect waves-light btn hoverable" href="/new-volunteer-form">Create Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s1 m1"></div>
                 </div>
             </div>
         </div>
-        <div>
-            <a class="waves-effect waves-light btn-large hoverable margin-top-50 sign-up-btn" href="/new-volunteer-form">Create Profile</a>
-        </div>
         <!-- new listing form -->     
-        <div class="row panel" id='new-listing'>
-            <h4>Add New Listing</h4>
-            <form class="col s12" id="new-listing-form">
-                <!-- Category -->
+        <div class="row" id='new-listing'>
+            <div class="col s12 m12">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <select id="category" required>
-                            <option value="" disabled selected>Volunteer Category</option>
-                            <option value="panelist">Panelist</option>
-                            <option value="lecturer">Lecturer</option>
-                            <option value="judge">Competition Judge</option>
-                            <option value="career">Career Guidance</option>
-                            <option value="shadowing">Job Shadowing</option>
-                            <option value="general">General Volunteering</option>
-                        </select>
-                        <label>Volunteer Category</label>
+                    <div class="col s1 m1"></div>
+                    <div class="col s10 m10 panel">
+                        <h4>Add New Listing</h4>
+                        <form id="new-listing-form">
+                            <!-- Category -->
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <select id="category" required>
+                                        <option value="" disabled selected>Volunteer Category</option>
+                                        <option value="panelist">Panelist</option>
+                                        <option value="lecturer">Lecturer</option>
+                                        <option value="judge">Competition Judge</option>
+                                        <option value="career">Career Guidance</option>
+                                        <option value="shadowing">Job Shadowing</option>
+                                        <option value="general">General Volunteering</option>
+                                    </select>
+                                    <label>Volunteer Category</label>
+                                </div>
+                            <!-- Specialty -->
+                                <div class="input-field col s12 m6">
+                                    <input placeholder="e.g. Computer Science" id="specialty" type="text" class="validate" required>
+                                    <label for="specialty">Your Specialty</label>
+                                </div>
+                            </div>
+                            <!-- Submit button -->
+                            <div class="row">
+                                <button class="btn waves-effect waves-light margin-left-10" type="submit" id="listing-form-submit">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                    <!-- Specialty -->
-                    <div class="input-field col s6">
-                        <input placeholder="e.g. Computer Science" id="specialty" type="text" class="validate" required>
-                        <label for="specialty">Your Specialty</label>
-                    </div>
+                    <div class="col s1 m1"></div>
                 </div>
-                <!-- Submit button -->
-                <button class="btn waves-effect waves-light" type="submit" id="listing-form-submit">Submit
-                    <i class="material-icons right">send</i>
-                </button>
-            </form>
+            </div>
         </div>   
         
         <!-- volunteer listings -->
         <div id="volunteer-listings">
-            <div class="row panel">
-                <h4>Active Listings</h4>
-                <ul class="collection listings">
-                    {{#each listings}}
-                    {{#if this.isActive}}
-                    <li class="collection-item">
-                        <div>
-                            <img src="/images/green-check.png" alt="Check" height="20px" class="circle">
-                            <span class="volunteer_location span-text">Preferred City: {{this.Volunteer.preferred_city}}</span>
-                            <span class="volunteer_category span-text">Category: {{this.category}}</span>
-                            <span class="volunteer_specialty span-text">Specialty: {{this.specialty}}</span>
-                            <span class="span-text right"><a href="">Archive</a></span>
-                        </div>
-                    </li>
-                    {{/if}}
-                    {{/each}}
-                </ul>
+            <div class="row">
+                <div class="col s1 m1"></div>
+                <div class="col s10 m10 panel">
+                    <h4>Active Listings</h4>
+                    <ul class="collection listings">
+                        {{#each listings}}
+                        {{#if this.isActive}}
+                        <li class="collection-item">
+                            <div class="row">
+                                <div class="col s12 m1 ">
+                                    <img src="/images/green-check.png" alt="Check" height="25px" class="circle">
+                                </div>
+                                <div class="col s12 m3 ">
+                                    <span class="volunteer_location span-text"><div class="bold">Preferred City: </div>{{this.Volunteer.preferred_city}}</span>
+                                </div>
+                                <div class="col s12 m3 ">
+                                    <span class="volunteer_category span-text"><div class="bold">Category: </div>{{this.category}}</span>
+                                </div>
+                                <div class="col s12 m3 ">
+                                    <span class="volunteer_specialty span-text"><div class="bold">Specialty: </div>{{this.specialty}}</span>
+                                </div>
+                                <div class="col s12 m2 ">
+                                    <form action="/api/volunteer/listing/archive/:{{this.id}}?_method=PUT" method="POST">
+                                        <input type="hidden" name="id" value={{this.id}}>
+                                        <button class="btn waves-effect waves-light grey archive-activate archive-activate" type="submit">Archive</button>
+                                     </form> 
+                                </div>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="col s1 m1"></div>
             </div>
-            <div class="row panel">
-                <h4>Archived Listings</h4>
-                <ul class="collection listings">
-                    {{#each listings}}
-                    {{#unless this.isActive}}
-                    <li class="collection-item archive">
-                        <div>
-                            <span class="volunteer_location span-text">Preferred City: {{this.Volunteer.preferred_city}}</span>
-                            <span class="volunteer_category span-text">Category: {{this.category}}</span>
-                            <span class="volunteer_specialty span-text">Specialty: {{this.specialty}}</span>
-                            <span class="span-text right"><a class="a-activate" href="">Activate</a></span>
-                        </div>
-                    </li>
-                    {{/unless}}
-                    {{/each}}
-                </ul>
+            <div class="row">
+                <div class="col s1 m1"></div>
+                <div class="col s10 m10 panel">
+                    <h4>Archived Listings</h4>
+                    <ul class="collection listings">
+                        {{#each listings}}
+                        {{#unless this.isActive}}
+                        <li class="collection-item archive">
+                            <div class="row">
+                                <div class="col s12 m1">
+                                    <img src="/images/archive-icon.png" alt="Check" height="25px" class="circle">
+                                </div>
+                                <div class="col s12 m3">
+                                    <span class="volunteer_location span-text"><div class="bold">Preferred City: </div>{{this.Volunteer.preferred_city}}</span>
+                                </div>
+                                <div class="col s12 m3">
+                                    <span class="volunteer_category span-text"><div class="bold">Category: </div>{{this.category}}</span>
+                                </div>
+                                <div class="col s12 m3">
+                                    <span class="volunteer_specialty span-text"><div class="bold">Specialty: </div>{{this.specialty}}</span>
+                                </div>
+                                <div class="col s12 m2">
+                                    <form action="/api/volunteer/listing/activate/:{{this.id}}?_method=PUT" method="POST">
+                                        <input type="hidden" name="id" value={{this.id}}>
+                                        <button class="btn waves-effect waves-lightarchive-activate archive-activate" type="submit">Activate</button>
+                                     </form> 
+                                </div>
+                            </div>
+                        </li>
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="col s1 m1"></div>
             </div>  
         </div>
     </div>

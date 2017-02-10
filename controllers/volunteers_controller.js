@@ -95,39 +95,64 @@ module.exports = function(app) {
     app.post("/api/volunteer/listing", ensureAuthenticated, function(req, res) {
         db.Listing.create({
             category: req.body.category,
-            specialty: req.body.specialty
+            specialty: req.body.specialty,
         }).then(function(dbPost) {
             res.redirect("/api/all");
         });
     });
 
-    // // PUT route for updating a listing
-    // app.put("/api/volunteer/listing/:id", function(req, res) {
-    //     db.Listing.update({ listing: req.body }, {
-    //         where: {
-    //             id: req.body.id
-    //         }
-    //     }).then(function(dbPost) {
-    //         res.redirect("/api/all");
-    //     });
-    // });
+    // PUT routes for updating a listing
+    // Archive
+    app.put("/api/volunteer/listing/archive/:id", function(req, res) {
+        db.Listing.update({ isActive: 0 }, {
+            where: {
+                id: req.body.id
+            }
+        }).then(function(dbRes) {
+            res.redirect("/");
+            // app.get("/api/volunteer/listing/archive/:id", function(req, res) {
+            //     db.Listing.findOne({
+            //         where: {
+            //             id: req.params.id
+            //         },
+            //         include: [{
+            //             model: db.Volunteer
+            //         }]
+            //     }).then(function(dbPost) {
+            //         res.redirect("api/volunteer/" + dbPost.Volunteer.id);
+            //     });
+            // });
+        });
+    });
 
-    // // DELETE route for a listing
-    // app.delete("/api/volunteer/listing/:id", function(req, res) {
-    //     db.Listing.destroy({
-    //         where: {
-    //             id: req.body.id
-    //         }
-    //     }).then(function(dbPost) {
-    //         res.redirect("api/all");
-    //     });
-    // });
 
+    // Activate 
+    app.put("/api/volunteer/listing/activate/:id", function(req, res) {
+        db.Listing.update({ isActive: 1 }, {
+            where: {
+                id: req.body.id
+            }
+        }).then(function(dbPost) {
+            res.redirect("/");
+            // app.get("/api/volunteer/listing/archive/:id", function(req, res) {
+            //     db.Listing.findOne({
+            //         where: {
+            //             id: req.params.id
+            //         },
+            //         include: [{
+            //             model: db.Volunteer
+            //         }]
+            //     }).then(function(dbPost) {
+            //         res.redirect("api/volunteer/" + dbPost.Volunteer.id);
+            //     });
+            // });
+        });
+    });
+
+    function ensureAuthenticated(req, res, next) {
+        if (req.isAuthenticated())
+            return next();
+        else
+            res.redirect('/signin');
+    }
 };
-
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-    else
-        res.redirect('/signin');
-}
