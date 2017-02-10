@@ -41,76 +41,87 @@
     <main class="container">
         <!-- volunteer sign-up form -->
         <div class="row">
-            <h2 class="margin-left-110">Create an Account</h2>
-            <p class="margin-left-110">Volunteers, create an account here to start posting.</p>
-            <div class="col s1 m1"></div>
-            <form class="col s10 panel-form" id="new-volunteer-form">
-                <!-- Name -->
+            <div class="col s12 m12">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input placeholder="First Name" id="first_name" type="text" class="validate" required>
-                        <label for="first_name">First Name</label>
+                    <div class="col s1 m1"></div>
+                    <div class="col s10 m10">
+                        <h2>Create an Account</h2>
+                        <p>Volunteers, create an account here to start posting.</p>
                     </div>
-                    <div class="input-field col s6">
-                        <input placeholder="Last Name" id="last_name" type="text" class="validate" required>
-                        <label for="last_name">Last Name</label>
-                    </div>
+                    <div class="col s1 m1"></div>
                 </div>
-                <!-- Email -->
                 <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">email</i>
-                        <input placeholder="example@gmail.com" id="email" type="email" class="validate" required>
-                        <label for="email" data-error="Please enter a valid email address." data-success="Thank you.">Email</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">lock</i>
-                        <input placeholder="Password" id="password" type="text" class="validate" required>
-                        <label for="password">Password</label>
-                    </div>
+                    <div class="col s1 m1"></div>
+                    <form class="col s10 panel-form" id="new-volunteer-form">
+                        <!-- Name -->
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input placeholder="First Name" id="first_name" type="text" class="validate" required>
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input placeholder="Last Name" id="last_name" type="text" class="validate" required>
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">email</i>
+                                <input placeholder="example@gmail.com" id="email" type="email" class="validate" required>
+                                <label for="email" data-error="Please enter a valid email address." data-success="Thank you.">Email</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">lock</i>
+                                <input placeholder="Password" id="password" type="text" class="validate" required>
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <!-- Preferred City -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">location_on</i>
+                                <input placeholder="e.g. Chicago, IL, USA" id="preferred_city" type="text" class="validate" required>
+                                <label for="preferred_city">Your Preferred City</label>
+                            </div>
+                        </div>
+                        <!-- Category -->
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <select id="category" required>
+                                    <option value="" disabled selected>Volunteer Category</option>
+                                    <option value="panelist">Panelist</option>
+                                    <option value="lecturer">Lecturer</option>
+                                    <option value="judge">Competition Judge</option>
+                                    <option value="career">Career Guidance</option>
+                                    <option value="shadowing">Job Shadowing</option>
+                                    <option value="general">General Volunteering</option>
+                                </select>
+                                <label>Volunteer Category</label>
+                            </div>
+                            <!-- Specialty -->
+                            <div class="input-field col s12 m6">
+                                <input placeholder="e.g. Computer Science" id="specialty" type="text" class="validate" required>
+                                <label for="specialty">Your Specialty</label>
+                            </div>
+                        </div>
+                        <!-- Bio -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="bio" class="materialize-textarea validate" data-length="500" required></textarea>
+                                <label for="bio">Your Bio</label>
+                            </div>
+                        </div>
+                        <!-- Submit button -->
+                        <button class="btn waves-effect waves-light" type="submit" id="volunteer-form-submit">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                    <div class="col s1 m1"></div>
                 </div>
-                <!-- Preferred City -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">location_on</i>
-                        <input placeholder="e.g. Chicago, IL, USA" id="preferred_city" type="text" class="validate" required>
-                        <label for="preferred_city">Your Preferred City</label>
-                    </div>
-                </div>
-                <!-- Category -->
-                <div class="row">
-                    <div class="input-field col s6">
-                        <select id="category" required>
-                            <option value="" disabled selected>Volunteer Category</option>
-                            <option value="panelist">Panelist</option>
-                            <option value="lecturer">Lecturer</option>
-                            <option value="judge">Competition Judge</option>
-                            <option value="career">Career Guidance</option>
-                            <option value="shadowing">Job Shadowing</option>
-                            <option value="general">General Volunteering</option>
-                        </select>
-                        <label>Volunteer Category</label>
-                    </div>
-                    <!-- Specialty -->
-                    <div class="input-field col s6">
-                        <input placeholder="e.g. Computer Science" id="specialty" type="text" class="validate" required>
-                        <label for="specialty">Your Specialty</label>
-                    </div>
-                </div>
-                <!-- Bio -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="bio" class="materialize-textarea validate" data-length="500" required></textarea>
-                        <label for="bio">Your Bio</label>
-                    </div>
-                </div>
-                <!-- Submit button -->
-                <button class="btn waves-effect waves-light" type="submit" id="volunteer-form-submit">Submit
-                    <i class="material-icons right">send</i>
-                </button>
-            </form>
-            <div class="col s1 m1"></div>
+            </div>
         </div>
     </main>
     <!-- Footer -->
