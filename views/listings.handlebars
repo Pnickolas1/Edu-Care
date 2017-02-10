@@ -2,7 +2,7 @@
 <!-- navbar with tabs -->
 <nav>
     <div class="nav-wrapper container">
-        <img src="../images/logo.png" alt="logo" class="logo">
+        <img src="/images/logo.png" alt="logo" class="logo">
         <a href="/" class="brand-logo">Edu-Care</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -25,76 +25,81 @@
         </div>
         <!-- Filter -->
         <div class="row">
-            <h4 class="margin-left-50 margin-top-50">Filter Results</h4>
-            <ul class="collapsible margin-left-50 margin-right-50" data-collapsible="expandable">
-                <li>
-                    <div class="collapsible-header" id="category-header">Volunteer Category</div>
-                    <div class="collapsible-body">
-                        <form id="filter-category-form">
-                            <p>
-                                <input type="checkbox" id="panelist" data-category="panelist" />
-                                <label for="panelist">Panelist</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="lecturer" data-category="lecturer" />
-                                <label for="lecturer">Lecturer</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="judge" data-category="judge"/>
-                                <label for="judge">Competition Judge</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="career" data-category="career"/>
-                                <label for="career">Career Guidance</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="shadowing" data-category="shadowing"/>
-                                <label for="shadowing">Job Shadowing</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="general" data-category="general"/>
-                                <label for="general">General Volunteering</label>
-                            </p>
-                        </form>
-                        <p>Click on at least one category to filter the results.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header">Volunteer Specialty</div>
-                    <div class="collapsible-body">
-                        <form>
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">textsms</i>
-                                <input type="text" id="autocomplete-input" class="autocomplete">
-                                <label for="autocomplete-input">Volunteer Specialty</label>
+            <div class="col s4">
+                <h4 class="margin-left-50">Refine By</h4>
+                <a class="margin-left-50 " href="/api/listings/">View All</a>
+                <ul class="collapsible margin-left-50" data-collapsible="expandable">
+                    <li>
+                        <div class="collapsible-header" id="category-header">Volunteer Category</div>
+                        <div class="collapsible-body">
+                            <form id="filter-category-form">
+                                <p>
+                                    <input type="checkbox" id="panelist" data-category="panelist" data-checked="false" />
+                                    <label for="panelist">Panelist</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="lecturer" data-category="lecturer" data-checked="false"/>
+                                    <label for="lecturer">Lecturer</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="judge" data-category="judge" data-checked="false"/>
+                                    <label for="judge">Competition Judge</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="career" data-category="career" data-checked="false"/>
+                                    <label for="career">Career Guidance</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="shadowing" data-category="shadowing" data-checked="false"/>
+                                    <label for="shadowing">Job Shadowing</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="general" data-category="general" data-checked="false"/>
+                                    <label for="general">General Volunteering</label>
+                                </p>
+                                <a class="waves-effect waves-light btn" id="cat-search-button"><i class="material-icons left">cloud</i>Search</a>
+                            </form>
+                            <p>Click on at least one category to filter the results.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">Volunteer Specialty</div>
+                        <div class="collapsible-body">
+                            <form>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">textsms</i>
+                                    <input type="text" id="autocomplete-input" class="autocomplete">
+                                    <label for="autocomplete-input">Volunteer Specialty</label>
+                                </div>
+                            </form>
+                            <p>Start typing a search term and click on the suggested term which best matches.</p>
+                            <a class="waves-effect waves-light btn" id="specialty-search-button"><i class="material-icons left">cloud</i>Search</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Collection of volunteer data -->
+            <div class="col s8">
+                <h4 class="margin-left-50">Listings</h4>
+                <ul class="collection margin-left-50 margin-right-50">
+                    {{#each listings}}
+                    <li class="collection-item item-{{this.category}}" data-category="{{this.category}}">
+                        <div class="row">
+                            <div class="col s3 m3">
+                                <img src="/images/user.png" height="200px" alt="User">
                             </div>
-                        </form>
-                        <p>Start typing a search term and click on the suggested term which best matches.</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- Collection of volunteer data -->
-        <div class="row">
-            <h4 class="margin-left-50">Listings</h4>
-            <ul class="collection margin-left-50 margin-right-50">
-                {{#each listings}}
-                <li class="collection-item item-{{this.category}}" data-category="{{this.category}}">
-                    <div class="row">
-                        <div class="col s3 m3">
-                            <img src="/images/user.png" height="200px" alt="User">
+                            <div class="col s9 m9">
+                                <h5>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h5>
+                                <p>Location: <span class="volunteer_preferred_city">{{this.Volunteer.preferred_city}}</span></p>
+                                <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
+                                <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
+                                <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
+                            </div>
                         </div>
-                        <div class="col s9 m9">
-                            <h5>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h5>
-                            <p>Location: <span class="volunteer_preferred_city">{{this.Volunteer.preferred_city}}</span></p>
-                            <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
-                            <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
-                            <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
-                        </div>
-                    </div>
-                </li>
-                {{/each}}
-            </ul>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
     </div>
 </main>

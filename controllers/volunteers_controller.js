@@ -22,14 +22,40 @@ module.exports = function(app) {
     // ====== Listing Routes ====== //
 
     // GET route to show all listings
+    // Aisha: can this be cleaned up?
     app.get("/api/listings", ensureAuthenticated, function(req, res) {
-        db.Listing.findAll({
-            include: [{
-                model: db.Volunteer
-            }]
-        }).then(function(dbRes) {
+        var findListings;
+        var queryCategory = req.query.cat;
+        if (queryCategory) {
+            findListings = db.Listing.findAll({
+                include: [{
+                    model: db.Volunteer
+                }],
+                where: {
+                    category: queryCategory
+                }
+            });
+        } else {
+            findListings = db.Listing.findAll({
+                include: [{
+                    model: db.Volunteer
+                }]
+            });
+        }
+        findListings.then(function(dbRes) {
             res.render("listings", { listings: dbRes });
         });
+    });
+
+    // GET route to show all listings specialties
+    app.get("/api/specialties", ensureAuthenticated, function(req, res) {
+        var findCategories = db.Listing.findAll({
+            attributes: ['specialty']
+        });
+        findCategories.then(function(dbRes) {
+            res.send(dbRes);
+        });
+
     });
 
     // GET route to show volunteer info and listings
@@ -91,8 +117,8 @@ module.exports = function(app) {
 };
 
 function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated())
-    return next();
-  else
-    res.redirect('/signin');
+    if (req.isAuthenticated())
+        return next();
+    else
+        res.redirect('/signin');
 }
