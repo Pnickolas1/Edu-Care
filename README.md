@@ -10,7 +10,7 @@ Edu-Care pairs individuals looking to volunteer their skills and expertise to sc
 
 The application is designed as a desktop web app first, but is completely mobile friendly.
 
-* Click [**here**](https://gentle-atoll-10010.herokuapp.com/) for the web app.
+* Click [**here**](https://hidden-crag-90720.herokuapp.com/) for the web app.
 
 ### The Engineers
 
