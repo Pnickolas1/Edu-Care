@@ -29,14 +29,6 @@ module.exports = function(sequelize, DataTypes) {
                 notEmpty: true
             }
         },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1],
-                notEmpty: true
-            }
-        },
         bio: {
             type: DataTypes.STRING,
             validate: {

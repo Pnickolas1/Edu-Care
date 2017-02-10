@@ -10,12 +10,11 @@ module.exports = function(app) {
         db.Volunteer.create({
             volunteer_first_name: req.body.volunteer_first_name,
             volunteer_last_name: req.body.volunteer_last_name,
-            category: req.body.category,
             preferred_city: req.body.preferred_city,
-            email: req.body.email,
-            bio: req.body.bio
+            bio: req.body.bio,
+            UserId: req.user.id
         }).then(function(dbPost) {
-            res.redirect("/api/all");
+            res.redirect("/api/volunteer/" + req.user.id);
         });
     });
 

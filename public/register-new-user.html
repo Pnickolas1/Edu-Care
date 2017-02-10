@@ -29,54 +29,41 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/schools">Schools</a></li>
                 <li><a href="/become-a-volunteer">Volunteers</a></li>
-                <li><a href="/logout">Sign Out</a></li>
+                <li><a href="/signin">Login</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="/schools">Schools</a></li>
                 <li><a href="/become-a-volunteer">Volunteers</a></li>
-                <li><a href="/logout">Sign Out</a></li>
+                <li><a href="/signin">Login</a></li>
             </ul>
         </div>
     </nav>
     <main class="container">
         <!-- volunteer sign-up form -->
         <div class="row">
-            <h2 class="margin-left-110">Create Your Profile</h2>
-            <p class="margin-left-110">Volunteers, create your user profile here!</p>
+            <h2 class="margin-left-110">Create an Account</h2>
+            <p class="margin-left-110">Volunteers, create an account here to start posting.</p>
             <div class="col s1 m1"></div>
-            <form class="col s10 panel-form" id="new-volunteer-form">
-                <!-- Name -->
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input placeholder="First Name" id="first_name" type="text" class="validate" required>
-                        <label for="first_name">First Name</label>
+            <div class="row section fill-out" id="create-account">
+                <form method='post' action='/register' class="col s12" id="volunteer-form">
+                    <h2 class="center-align">Create an Account</h2>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" name="username" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
                     </div>
-                    <div class="input-field col s6">
-                        <input placeholder="Last Name" id="last_name" type="text" class="validate" required>
-                        <label for="last_name">Last Name</label>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" name="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
                     </div>
-                </div>
-                <!-- Preferred City -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">location_on</i>
-                        <input placeholder="e.g. Chicago, IL, USA" id="preferred_city" type="text" class="validate" required>
-                        <label for="preferred_city">Your Preferred City</label>
-                    </div>
-                </div>
-                <!-- Bio -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="bio" class="materialize-textarea validate" data-length="500" required></textarea>
-                        <label for="bio">Your Bio</label>
-                    </div>
-                </div>
-                <!-- Submit button -->
-                <button class="btn waves-effect waves-light" type="submit" id="volunteer-form-submit">Submit
-                    <i class="material-icons right">send</i>
-                </button>
-            </form>
+                    <button class="btn waves-effect waves-light" type="submit">Register
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
             <div class="col s1 m1"></div>
         </div>
     </main>
