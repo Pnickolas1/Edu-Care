@@ -41,8 +41,8 @@
     <main class="container">
         <!-- volunteer sign-up form -->
         <div class="row">
-            <h2 class="margin-left-110">Tell us about yourself.</h2>
-            <p class="margin-left-110">Edu-care connects schools with volunteers. Please tell us more about yourself.</p>
+            <h2 class="margin-left-110">Create an Account</h2>
+            <p class="margin-left-110">Volunteers, create an account here to start posting.</p>
             <div class="col s1 m1"></div>
             <form class="col s10 panel-form" id="new-volunteer-form">
                 <!-- Name -->
@@ -59,15 +59,21 @@
                 </div>
                 <!-- Email -->
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <i class="material-icons prefix">email</i>
                         <input placeholder="example@gmail.com" id="email" type="email" class="validate" required>
                         <label for="email" data-error="Please enter a valid email address." data-success="Thank you.">Email</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">lock</i>
+                        <input placeholder="Password" id="password" type="text" class="validate" required>
+                        <label for="password">Password</label>
                     </div>
                 </div>
                 <!-- Preferred City -->
                 <div class="row">
                     <div class="input-field col s12">
+                        <i class="material-icons prefix">location_on</i>
                         <input placeholder="e.g. Chicago, IL, USA" id="preferred_city" type="text" class="validate" required>
                         <label for="preferred_city">Your Preferred City</label>
                     </div>

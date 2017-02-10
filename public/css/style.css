@@ -42,6 +42,10 @@ hr {
     margin-top: 20px;
 }
 
+.margin-top-10 {
+    margin-top: 10px;
+}
+
 .margin-left-290 {
     margin-left: 290px;
 }
@@ -91,6 +95,14 @@ hr {
     padding-bottom: 2px;
 }
 
+#landing-panel-transparent {
+    background: rgba(225, 225, 225, 0.4);
+    width: 70%;
+    margin-left: 15%;
+    height: 300px;
+    border-radius: 5px;
+}
+
 .panel-form {
     background: white;
     border-radius: 5px;
@@ -123,6 +135,12 @@ hr {
 
 .material-icons {
     font-size: 30px;
+}
+
+.icon {
+    height: 30px;
+    width: auto;
+    margin-top: 20px;
 }
 
 
@@ -161,10 +179,49 @@ footer.page-footer {
 }
 
 
+/*Landing*/
+
+#helping-banner {
+    background: #f8f8f8;
+    height: 450px;
+}
+
+#top-banner {
+    height: 500px;
+    padding-top: 0;
+    background-image: url("../images/listening-lighter.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#works-banner {
+    background-image: url("../images/chalkboard.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    height: 400px;
+}
+
+#expert-background {
+    background-image: url("../images/comp-hardware.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+#experts-banner {
+    height: 417px;
+}
+
+.p-text {
+    font-size: 20px;
+}
+
+
 /*Category Cards*/
 
 .card-title {
-    background: rgba(122, 130, 136, 0.7);
+    background: rgba(0, 0, 0, 0.2);
     width: 100%;
 }
 
@@ -216,15 +273,15 @@ footer.page-footer {
     margin-bottom: 0;
 }
 
-.fill-out {
+#create-account {
     height: 450px;
     background: white;
     margin-bottom: 0;
 }
 
-#volunteer-form {
-    width: 90%;
-    margin-left: 60px;
+.globe-img {
+    height: 420px;
+    width: auto;
 }
 
 .connect-to-school {
@@ -290,7 +347,28 @@ footer.page-footer {
 }
 
 .sign-in-background {
-    background: url("../images/students-volunteer.jpg");
+    background: url("../images/ipad.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 890px) {
+    .h4 {
+        font-size: 30px;
+    }
+    .p-text {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 667px) {
+    .h1 {
+        font-size: 45px;
+    }
+}
+
+@media only screen and (max-width: 515px) {
+    .h1 {
+        font-size: 35px;
+    }
 }

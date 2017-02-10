@@ -19,6 +19,7 @@ $(document).ready(function() {
             volunteer_first_name: firstName.val().trim(),
             volunteer_last_name: lastName.val().trim(),
             email: email.val().trim(),
+            password: password.val().trim(),
             preferred_city: preferredCity.val().trim(),
             category: category.val(),
             specialty: specialty.val().trim(),

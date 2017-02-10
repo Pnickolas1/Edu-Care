@@ -19,56 +19,19 @@ main {
 }
 
 
-/* Top banner */
-
-#top-banner {
-    height: 500px;
-    padding-top: 0;
-    background-image: url("../images/listening-lighter.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.top-text {
-    margin-top: 100px;
-}
-
-#sign-up-btn {
-    margin-top: 10px;
-}
+/* Experts Banner */
 
 
-/*#panel {
-    background: rgba(122, 130, 136, 0.4);
-    width: 70%;
-    margin-left: 200px;
-    height: 300px;
-    border-radius: 25px;
+/*#experts-banner {
+    padding: 0;
+    height: 417px;
 }*/
 
 
-/* Helping Students Banner */
-
-#helping-banner {
-    background: #f8f8f8;
-    height: 330px;
-    padding: 0;
-    padding-top: 30px;
-    height: 500px;
-}
-
-
-/* Experts Banner */
-
-#experts-banner {
-    padding: 0;
+/*#expert-img {
     height: 417px;
-}
-
-#expert-img {
-    height: auto;
     width: 100%;
-}
+}*/
 
 .col.s6.m6 {
     padding: 0;
@@ -83,25 +46,6 @@ main {
     font-size: 20px;
     margin-top: 50px;
     margin-bottom: 50px;
-}
-
-
-/* How It Works Banner */
-
-#works-banner {
-    background-image: url("../images/chalkboard.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    padding: 0;
-    padding-top: 30px;
-    height: 400px;
-}
-
-.icon {
-    height: 30px;
-    width: auto;
-    margin-top: 20px;
 }
 
 
