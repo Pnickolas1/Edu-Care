@@ -14,6 +14,7 @@ var User = db.User;
 // Passport Routes
 module.exports = function(app) {
 
+    // This is the function for registering a new user
     app.post('/register', function(req, res) {
         User.register(req.body.username, req.body.password, function(err, account) {
             if (err) {
@@ -22,22 +23,25 @@ module.exports = function(app) {
             }
 
             res.redirect("/signin");
-
         });
     });
 
+    // This is the function for authenticating a user
     app.post('/login',
-        passport.authenticate('local', { failureRedirect: '/signin',
-                                         failureFlash: false }),
+        passport.authenticate('local', {
+            // This handles failures
+            failureRedirect: '/signin',
+            failureFlash: false // This needs further looking into...
+        }),
         function(req, res) {
-            console.log('test this');
             // If this function gets called, authentication was successful.
             // `req.user` contains the authenticated user.
             res.redirect("/api/volunteer/" + req.user.id);
         }
-        );
+    );
 
-    app.get('/logout', function(req, res){
+    // This is the function for logging a user out
+    app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     });
