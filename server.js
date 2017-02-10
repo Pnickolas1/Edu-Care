@@ -7,6 +7,7 @@ var db = require('./models');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var flash = require('connect-flash');
 
 //creating instance of database for User table
 var User = db.User;
@@ -26,6 +27,7 @@ app.use(bodyParser()); // -- caused error in terminal - KS
 app.use(require('connect-multiparty')());
 app.use(cookieParser());
 app.use(session({ secret: 'super-secret' })); // -- caused error in terminal - KS
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next) {
@@ -34,7 +36,6 @@ app.use(function(req, res, next) {
     }
     next();
 });
-
 
 // Define handlesbars engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));

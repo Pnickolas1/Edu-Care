@@ -7,6 +7,7 @@ var exphbs = require('express-handlebars');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var flash = require('connect-flash');
 
 var User = db.User;
 
@@ -25,17 +26,19 @@ module.exports = function(app) {
         });
     });
 
-    app.post('/login', function(req, res, next) {
-            console.log(req.body);
-
-            next();
-
-        },
-        passport.authenticate('local'),
+    app.post('/login',
+        passport.authenticate('local', { failureRedirect: '/signin',
+                                         failureFlash: false }),
         function(req, res) {
             console.log('test this');
             // If this function gets called, authentication was successful.
             // `req.user` contains the authenticated user.
-            res.redirect("/api/volunteer/:id");
-        });
+            res.redirect("/api/volunteer/" + req.user.id);
+        }
+        );
+
+    app.get('/logout', function(req, res){
+        req.logout();
+        res.redirect('/');
+    });
 };

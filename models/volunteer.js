@@ -60,6 +60,8 @@ module.exports = function(sequelize, DataTypes) {
                 models.Volunteer.hasMany(models.Listing, {
                     onDelete: "cascade"
                 });
+
+                models.Volunteer.belongsTo(models.User);
             }
         }
 
