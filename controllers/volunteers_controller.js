@@ -6,7 +6,7 @@ module.exports = function(app) {
     // ====== Volunteer Routes ====== //
 
     // POST route to create new volunteer
-    app.post("/api/volunteer", function(req, res) {
+    app.post("/api/volunteer", ensureAuthenticated, function(req, res) {
         db.Volunteer.create({
             volunteer_first_name: req.body.volunteer_first_name,
             volunteer_last_name: req.body.volunteer_last_name,
@@ -22,7 +22,7 @@ module.exports = function(app) {
     // ====== Listing Routes ====== //
 
     // GET route to show all listings
-    app.get("/api/listings", function(req, res) {
+    app.get("/api/listings", ensureAuthenticated, function(req, res) {
         db.Listing.findAll({
             include: [{
                 model: db.Volunteer
@@ -33,7 +33,7 @@ module.exports = function(app) {
     });
 
     // GET route to show volunteer info and listings
-    app.get("/api/volunteer/:id", function(req, res) {
+    app.get("/api/volunteer/:id", ensureAuthenticated, function(req, res) {
         var listingPromise = db.Listing.findAll({
             where: {
                 VolunteerId: req.params.id
@@ -57,7 +57,7 @@ module.exports = function(app) {
     });
 
     //POST route to create new listing
-    app.post("/api/volunteer/listing", function(req, res) {
+    app.post("/api/volunteer/listing", ensureAuthenticated, function(req, res) {
         db.Listing.create({
             category: req.body.category,
             specialty: req.body.specialty
@@ -89,3 +89,10 @@ module.exports = function(app) {
     // });
 
 };
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated())
+    return next();
+  else
+    res.redirect('/signin');
+}
