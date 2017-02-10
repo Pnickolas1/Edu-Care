@@ -8,7 +8,7 @@ $(document).ready(function() {
             return '&cat=' + cat;
         });
         var queryString = queryStringComponents.join('');
-        window.location.search = queryString;
+        window.location.search += queryString;
     });
     $.ajax({
             method: 'GET',
@@ -25,8 +25,7 @@ $(document).ready(function() {
             });
             $(document).on('click', '#specialty-search-button', function(event) {
                 var searchTerm = $('#autocomplete-input').val();
-                console.log(searchTerm);
-                //to be continued
+                window.location.search = 'spec=' + searchTerm;
             });
         });
 

@@ -23,9 +23,10 @@ module.exports = function(app) {
 
     // GET route to show all listings
     // Aisha: can this be cleaned up?
-    app.get("/api/listings", ensureAuthenticated, function(req, res) {
+    app.get("/api/listings", function(req, res) {
         var findListings;
         var queryCategory = req.query.cat;
+        var querySpecialty = req.query.spec;
         if (queryCategory) {
             findListings = db.Listing.findAll({
                 include: [{
@@ -33,6 +34,15 @@ module.exports = function(app) {
                 }],
                 where: {
                     category: queryCategory
+                }
+            });
+        } else if (querySpecialty) {
+            findListings = db.Listing.findAll({
+                include: [{
+                    model: db.Volunteer
+                }],
+                where: {
+                    specialty: querySpecialty
                 }
             });
         } else {
@@ -48,7 +58,7 @@ module.exports = function(app) {
     });
 
     // GET route to show all listings specialties
-    app.get("/api/specialties", ensureAuthenticated, function(req, res) {
+    app.get("/api/specialties", function(req, res) {
         var findCategories = db.Listing.findAll({
             attributes: ['specialty']
         });
