@@ -79,7 +79,7 @@ module.exports = function(app) {
         });
         var volunteerPromise = db.Volunteer.findOne({
             where: {
-                volunteerId: req.params.id
+                id: req.params.id
             }
         });
 

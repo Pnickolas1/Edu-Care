@@ -57,9 +57,18 @@
                                 <input class='validate' type='password' name='password' id='password' />
                                 <label class="left-align" for='password'>Password</label>
                             </div>
-                            <label class="right">
-                                <a href='#!'><b>Forgot Password</b></a>
-                            </label>
+                            <!-- Modal Trigger -->
+                            <a class="right" href="#modal1"><b>Forgot Password</b></a>
+                            <!-- Modal Structure -->
+                            <div id="modal1" class="modal bottom-sheet right">
+                                <div class="modal-content">
+                                    <h4>You should've used LastPass</h4>
+                                    <p class="center-align">In the door.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+                                </div>
+                            </div>
                         </div>
                         <br />
                         <center>
@@ -87,6 +96,11 @@
     <!-- Materialize initialization -->
     <script type="text/javascript" src="js/initialization.js"></script>
     <script type="text/javascript" src="form.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.modal').modal();
+    });
+    </script>
 </body>
 
 </html>
