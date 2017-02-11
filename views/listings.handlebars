@@ -8,12 +8,12 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/schools">Schools</a></li>
             <li><a href="/become-a-volunteer">Volunteers</a></li>
-            <li><a href="/signin">Login</a></li>
+            <li><a href="/volunteer">Volunteer Dashboard</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
             <li><a href="/schools">Schools</a></li>
             <li><a href="/become-a-volunteer">Volunteers</a></li>
-            <li><a href="/signin">Login</a></li>
+            <li><a href="/volunteer">Volunteer Dashboard</a></li>
         </ul>
     </div>
 </nav>
@@ -28,7 +28,7 @@
             <div class="col s12 m5">
                 <h4 class="margin-left-50">Refine By</h4>
                 <p class="margin-left-50">You can refine the volunteer listings by volunteer category or volunteer specialty.</p>
-                <a class="margin-left-50" href="/api/listings/">View All</a>
+                <a class="margin-left-50" href="/listings/">View All</a>
                 <ul class="collapsible margin-left-50" data-collapsible="accordion">
                     <li>
                         <div class="collapsible-header" id="category-header">Volunteer Category</div>
@@ -91,7 +91,7 @@
                             <div class="col s12 m4 center-align">
                                 <img src="/images/user.png" height="150px" class="user-img" alt="User">
                                 <br>
-                                <a class="waves-effect waves-light btn" href="mailto:{{this.Volunteer.User.username}}?Subject=Interested%20in%20volunteering%20opportunity" target="_top"><i class="material-icons left">email</i><span class="hide-on-med-and-down"> Me</span></a>
+                                <a class="waves-effect waves-light btn" href="mailto:{{this.User.username}}?Subject=Interested%20in%20volunteering%20opportunity" target="_top">Contact</a>
                             </div>
                             <div class="col s12 m1"></div>
                             <div class="col s12 m7">

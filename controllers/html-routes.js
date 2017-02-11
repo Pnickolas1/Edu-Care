@@ -26,8 +26,6 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname + "/../public/signin.html"));
     });
 
-    app.get("/listings", function(req, res) {
-        res.redirect("/api/listings");
-    });
+
 
 };

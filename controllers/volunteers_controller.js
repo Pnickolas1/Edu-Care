@@ -14,7 +14,7 @@ module.exports = function(app) {
             bio: req.body.bio,
             UserId: req.user.id
         }).then(function(dbPost) {
-            res.redirect("/api/volunteer/" + req.user.id);
+            res.redirect("/volunteer/");
         });
     });
 
@@ -22,14 +22,16 @@ module.exports = function(app) {
 
     // GET route to show all listings
     // Aisha: can this be cleaned up?
-    app.get("/api/listings", function(req, res) {
+    app.get("/listings", function(req, res) {
         var findListings;
         var queryCategory = req.query.cat;
         var querySpecialty = req.query.spec;
         if (queryCategory) {
             findListings = db.Listing.findAll({
                 include: [{
-                    model: db.Volunteer
+                    model: db.Volunteer,
+                }, {
+                    model: db.User
                 }],
                 where: {
                     category: queryCategory
@@ -39,6 +41,8 @@ module.exports = function(app) {
             findListings = db.Listing.findAll({
                 include: [{
                     model: db.Volunteer
+                }, {
+                    model: db.User
                 }],
                 where: {
                     specialty: querySpecialty
@@ -48,6 +52,8 @@ module.exports = function(app) {
             findListings = db.Listing.findAll({
                 include: [{
                     model: db.Volunteer
+                }, {
+                    model: db.User
                 }]
             });
         }
@@ -59,6 +65,9 @@ module.exports = function(app) {
     // GET route to show all listings specialties
     app.get("/api/specialties", function(req, res) {
         var findCategories = db.Listing.findAll({
+            where: {
+                isActive: true
+            },
             attributes: ['specialty']
         });
         findCategories.then(function(dbRes) {
@@ -82,7 +91,10 @@ module.exports = function(app) {
         var volunteerPromise = db.Volunteer.findOne({
             where: {
                 UserId: req.user.id
-            }
+            },
+            include: [{
+                model: db.User
+            }]
         });
 
         Promise.all([listingPromise, volunteerPromise])
@@ -95,13 +107,22 @@ module.exports = function(app) {
 
     //POST route to create new listing
     app.post("/api/volunteer/listing", ensureAuthenticated, function(req, res) {
-        db.Listing.create({
-            category: req.body.category,
-            specialty: req.body.specialty,
-            UserId: req.user.id
-        }).then(function(dbPost) {
-            res.redirect("/api/all");
-        });
+        db.Volunteer.findOne({
+                where: {
+                    UserId: req.user.id
+                },
+                attributes: ['id']
+            })
+            .then(function(userData) {
+                db.Listing.create({
+                    category: req.body.category,
+                    specialty: req.body.specialty,
+                    UserId: req.user.id,
+                    VolunteerId: userData.id
+                }).then(function(dbPost) {
+                    res.redirect("/volunteer");
+                });
+            });
     });
 
     // PUT routes for updating a listing
@@ -112,19 +133,7 @@ module.exports = function(app) {
                 id: req.body.id
             }
         }).then(function(dbRes) {
-            res.redirect("/");
-            // app.get("/api/volunteer/listing/archive/:id", function(req, res) {
-            //     db.Listing.findOne({
-            //         where: {
-            //             id: req.params.id
-            //         },
-            //         include: [{
-            //             model: db.Volunteer
-            //         }]
-            //     }).then(function(dbPost) {
-            //         res.redirect("api/volunteer/" + dbPost.Volunteer.id);
-            //     });
-            // });
+            res.redirect("/volunteer");
         });
     });
 
@@ -136,19 +145,7 @@ module.exports = function(app) {
                 id: req.body.id
             }
         }).then(function(dbPost) {
-            res.redirect("/");
-            // app.get("/api/volunteer/listing/archive/:id", function(req, res) {
-            //     db.Listing.findOne({
-            //         where: {
-            //             id: req.params.id
-            //         },
-            //         include: [{
-            //             model: db.Volunteer
-            //         }]
-            //     }).then(function(dbPost) {
-            //         res.redirect("api/volunteer/" + dbPost.Volunteer.id);
-            //     });
-            // });
+            res.redirect("/volunteer");
         });
     });
 

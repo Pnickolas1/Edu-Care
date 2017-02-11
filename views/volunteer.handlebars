@@ -48,11 +48,13 @@
                             <div class="col s12 m5">
                                 <h5><i class="material-icons">perm_identity</i><span class="volunteer_name">{{volunteer.volunteer_first_name}} {{volunteer.volunteer_last_name}}</span></h5>
                                 <p>Preferred City: <span class="volunteer_preferred_city">{{volunteer.preferred_city}}</span></p>
-                                <p>Email: <span class="volunteer_email">{{volunteer.email}}</span></p>
+                                <p>Email: <span class="volunteer_email">{{volunteer.User.username}}</span></p>
                                 <p>Bio: <span class="volunteer_bio">{{volunteer.bio}}</span></p>
                             </div>
                             <div class="col s12 m3">
+                            {{#unless volunteer}}
                                 <a class="waves-effect waves-light btn hoverable" href="/new-volunteer-form">Create Profile</a>
+                            {{/unless}}
                             </div>
                         </div>
                     </div>
@@ -67,34 +69,38 @@
                     <div class="col s1 m1"></div>
                     <div class="col s10 m10 panel">
                         <h4>Add New Listing</h4>
-                        <form id="new-listing-form">
-                            <!-- Category -->
-                            <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <select id="category" required>
-                                        <option value="" disabled selected>Volunteer Category</option>
-                                        <option value="Panelist">Panelist</option>
-                                        <option value="Lecturer">Lecturer</option>
-                                        <option value="Judge">Competition Judge</option>
-                                        <option value="Career">Career Guidance</option>
-                                        <option value="Shadowing">Job Shadowing</option>
-                                        <option value="General">General Volunteering</option>
-                                    </select>
-                                    <label>Volunteer Category</label>
+                        {{#if volunteer}}
+                            <form id="new-listing-form">
+                                <!-- Category -->
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <select id="category" required>
+                                            <option value="" disabled selected>Volunteer Category</option>
+                                            <option value="Panelist">Panelist</option>
+                                            <option value="Lecturer">Lecturer</option>
+                                            <option value="Judge">Competition Judge</option>
+                                            <option value="Career">Career Guidance</option>
+                                            <option value="Shadowing">Job Shadowing</option>
+                                            <option value="General">General Volunteering</option>
+                                        </select>
+                                        <label>Volunteer Category</label>
+                                    </div>
+                                <!-- Specialty -->
+                                    <div class="input-field col s12 m6">
+                                        <input placeholder="e.g. Computer Science" id="specialty" type="text" class="validate" required>
+                                        <label for="specialty">Your Specialty</label>
+                                    </div>
                                 </div>
-                            <!-- Specialty -->
-                                <div class="input-field col s12 m6">
-                                    <input placeholder="e.g. Computer Science" id="specialty" type="text" class="validate" required>
-                                    <label for="specialty">Your Specialty</label>
+                                <!-- Submit button -->
+                                <div class="row">
+                                    <button class="btn waves-effect waves-light margin-left-10" type="submit" id="listing-form-submit">Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
                                 </div>
-                            </div>
-                            <!-- Submit button -->
-                            <div class="row">
-                                <button class="btn waves-effect waves-light margin-left-10" type="submit" id="listing-form-submit">Submit
-                                    <i class="material-icons right">send</i>
-                                </button>
-                            </div>
-                        </form>
+                            </form>
+                        {{else}}
+                            <p>Please create a volunteer profile.</p>
+                        {{/if}}
                     </div>
                     <div class="col s1 m1"></div>
                 </div>
