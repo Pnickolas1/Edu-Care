@@ -34,13 +34,11 @@ Create a fullstack application that would provide a meaningful service to our co
 * Express
 * Handlebars
 * Sequelize
-* Materialize
 
 ### New Tech
 
 * Passport
 * Materialize
-* Ziptastic
 
 ### The Business
 
@@ -54,4 +52,12 @@ These volunteer opportunities include:
 * Job Shadowing
 
 This volunteer entry will post a listing to a filterable board for search by school administrators and teachers. Volunteers can create as many listings as they would like, and can review and update this information in their user dashboard.
+
+### Sample This Repo
+
+1. git clone git@github.com:a-ashbeck/project-2.git
+2. npm install
+3. Create MySQL "edu_care" database
+4. node server.js 
+5. Run queries in "seeds.sql" or populate tables with your own data
 
