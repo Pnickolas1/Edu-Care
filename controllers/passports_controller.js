@@ -1,12 +1,6 @@
 var db = require('../models');
 // Require dependencies
-var express = require('express');
-var methodOverride = require('method-override');
-var bodyParser = require('body-parser');
-var exphbs = require('express-handlebars');
 var passport = require('passport');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
 var flash = require('connect-flash');
 
 var User = db.User;
@@ -31,7 +25,7 @@ module.exports = function(app) {
         passport.authenticate('local', {
             // This handles failures
             failureRedirect: '/signin',
-            failureFlash: false // This needs further looking into...
+            failureFlash: true // This needs further looking into...
         }),
         function(req, res) {
             // If this function gets called, authentication was successful.
