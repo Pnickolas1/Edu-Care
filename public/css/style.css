@@ -447,6 +447,13 @@ footer.page-footer {
         padding-right: 10px;
         font-size: 10px;
     }
+    .pencils-background,
+    .desk-background {
+        height: 100%;
+    }
+    .user-img {
+        height: 150px;
+    }
 }
 
 @media only screen and (max-width: 890px) {
@@ -459,6 +466,9 @@ footer.page-footer {
     }
     .p-text {
         font-size: 15px;
+    }
+    .user-img {
+        height: 100px;
     }
 }
 
@@ -478,6 +488,9 @@ footer.page-footer {
     .hands-background {
         height: 100%;
     }
+    .vol-spec {
+        font-size: 5px;
+    }
 }
 
 @media only screen and (max-width: 667px) {
@@ -495,6 +508,9 @@ footer.page-footer {
     }
     #helping-banner {
         height: 100%;
+    }
+    .user-img {
+        height: 60px;
     }
 }
 
@@ -521,6 +537,12 @@ footer.page-footer {
         padding-left: 20px;
         padding-right: 20px;
         font-size: 15px;
+    }
+    .collapsible {
+        margin-right: 40px;
+    }
+    .user-img {
+        height: 100px;
     }
 }
 
