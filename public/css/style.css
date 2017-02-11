@@ -229,6 +229,21 @@ footer.page-footer {
     padding: 0;
 }
 
+#gray-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+}
+
+#top-banner .h1-landing {
+    line-height: 50%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+    font-size: 80px;
+}
+
 #works-banner {
     background-image: url("../images/chalkboard.jpg");
     background-size: cover;
@@ -310,11 +325,12 @@ footer.page-footer {
 /*Schools*/
 
 .welcome-schools {
-    background-image: url("../images/welcome-schools.jpg");
+    background-image: url("../images/welcome-schools copy.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 450px;
     margin-bottom: 0;
+    color: white;
 }
 
 .pencils-background {
@@ -511,6 +527,14 @@ footer.page-footer {
     .vol-spec {
         font-size: 5px;
     }
+    #top-banner .h1-landing {
+        line-height: 50%;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+        font-size: 60px;
+    }
 }
 
 @media only screen and (max-width: 667px) {
@@ -569,6 +593,14 @@ footer.page-footer {
     }
     .margin-left-50 {
         margin-left: 25px;
+    }
+    #top-banner .h1-landing {
+        line-height: 90%;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+        font-size: 60px;
     }
 }
 
