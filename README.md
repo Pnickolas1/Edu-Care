@@ -4,7 +4,7 @@
 
 ### The Application
 
-#### Edu-Care brings outside talent and expertise to the classroom
+#### Edu-Care brings outside talent and expertise to the classroom.
 
 Edu-Care pairs individuals looking to volunteer their skills and expertise to schools that are looking for a helping hand.
 
@@ -23,15 +23,26 @@ The application is designed as a desktop web app first, but is completely mobile
 
 Create a fullstack application that would provide a meaningful service to our communities.
 
+### Technologies Used
+
+* HTML5
+* CSS
+* Javascript
+* jQuery
+* MySQL
+* Node
+* Express
+* Handlebars
+* Sequelize
+
 ### New Tech
 
 * Passport
 * Materialize
-* Ziptastic
 
 ### The Business
 
-Volunteers looking to give back to educational communities can sign up with the app to post their services for schools to see. Think of it as Craigslist but for individuals looking to specifically volunteer for education purposes at local schools. Volunteers can choose from 5 volunteer categories, and then list their specific specialty.
+Volunteers looking to give back to educational communities can sign up with the app to post their services for schools to see. Think of it as Craigslist, but for individuals looking to specifically volunteer for education purposes at local schools. Volunteers can choose from 5 volunteer categories, and then list their specific specialty.
 
 These volunteer opportunities include:
 * Speaker
@@ -40,5 +51,13 @@ These volunteer opportunities include:
 * Career Guidance
 * Job Shadowing
 
-This volunteer antrey will be posted a listing to a filterable board for school officials to peruse. Volunteers can create as many listings as they would like, and can review and update this information in their user dashboard.
+This volunteer entry will post a listing to a filterable board for search by school administrators and teachers. Volunteers can create as many listings as they would like, and can review and update this information in their user dashboard.
+
+### Sample This Repo
+
+1. git clone git@github.com:a-ashbeck/project-2.git
+2. npm install
+3. Create MySQL "edu_care" database
+4. node server.js 
+5. Run queries in "seeds.sql" or populate tables with your own data
 
