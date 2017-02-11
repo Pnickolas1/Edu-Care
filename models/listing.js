@@ -37,6 +37,7 @@ module.exports = function(sequelize, DataTypes) {
             associate: function(models) {
                 // Associating Volunteer with Listing
                 models.Listing.belongsTo(models.Volunteer);
+                models.Listing.belongsTo(models.User);
             }
         }
     });

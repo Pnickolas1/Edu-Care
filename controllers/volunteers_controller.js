@@ -68,18 +68,20 @@ module.exports = function(app) {
     });
 
     // GET route to show volunteer info and listings
-    app.get("/api/volunteer/:id", ensureAuthenticated, function(req, res) {
+    app.get("/volunteer", ensureAuthenticated, function(req, res) {
         var listingPromise = db.Listing.findAll({
             where: {
-                VolunteerId: req.params.id
+                UserId: req.user.id
             },
             include: [{
                 model: db.Volunteer
+            }, {
+                model: db.User
             }]
         });
         var volunteerPromise = db.Volunteer.findOne({
             where: {
-                id: req.params.id
+                UserId: req.user.id
             }
         });
 
@@ -96,6 +98,7 @@ module.exports = function(app) {
         db.Listing.create({
             category: req.body.category,
             specialty: req.body.specialty,
+            UserId: req.user.id
         }).then(function(dbPost) {
             res.redirect("/api/all");
         });

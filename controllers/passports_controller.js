@@ -36,7 +36,7 @@ module.exports = function(app) {
         function(req, res) {
             // If this function gets called, authentication was successful.
             // `req.user` contains the authenticated user.
-            res.redirect("/api/volunteer/" + req.user.id);
+            res.redirect("/volunteer/");
         }
     );
 
