@@ -20,7 +20,7 @@
 <main>
     <div class="container">
         <div class="row section center-align listings-header">
-            <h1 class="margin-top-130">Volunteer Listings</h1>
+            <h1 class="margin-top-130 h1">Volunteer Listings</h1>
             <h5>Schools, find your perfect volunteer here.</h5>
         </div>
         <!-- Filter -->
@@ -66,39 +66,44 @@
                     <li>
                         <div class="collapsible-header">Volunteer Specialty</div>
                         <div class="collapsible-body">
-                            <form>
+                            <form id="autocomplete-form">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">textsms</i>
                                     <input type="text" id="autocomplete-input" class="autocomplete">
                                     <label for="autocomplete-input"></label>
                                 </div>
+                                 <button class="waves-effect waves-light btn" id="specialty-search-button" type="submit"><i class="material-icons left">cloud</i>Search</button>
                             </form>
                             <p>Start typing a search term and click on the suggested term which best matches.</p>
-                            <a class="waves-effect waves-light btn" id="specialty-search-button"><i class="material-icons left">cloud</i>Search</a>
                         </div>
                     </li>
                 </ul>
             </div>
             <!-- Collection of volunteer data -->
-            <div class="col s12 m7">
-                <h4 class="margin-left-50">Listings</h4>
-                <ul class="collection margin-left-50 margin-right-50">
+            <div class="col s12 m7" id='listings-div'>
+                <h4 class="margin-left-50 margin-right-50">Listings</h4>
+                <p class="margin-left-50 margin-right-50">Click on a listing to see more information.</p>
+                <ul class="collection margin-right-50 margin-left-50" id='listing-collapsible'>
                     {{#each listings}}
-                    <li class="collection-item item-{{this.category}}" data-category="{{this.category}}">
-                        <div class="row">
-                            <div class="col s12 m3">
-                                <img src="/images/user.png" height="200px" class="user-img" alt="User">
+                    {{#if this.isActive}}
+                    <li class="collection-item hoverable" data-category="{{this.category}}">
+                        <div class= "row">
+                            <div class="col s12 m4 center-align">
+                                <img src="/images/user.png" height="150px" class="user-img" alt="User">
+                                <br>
+                                <a class="waves-effect waves-light btn" href="mailto:{{this.Volunteer.User.username}}?Subject=Interested%20in%20volunteering%20opportunity" target="_top"><i class="material-icons left">email</i><span class="hide-on-med-and-down"> Me</span></a>
                             </div>
-                            <div class="col s1 m1"></div>
-                            <div class="col s12 m8">
-                                <h5>Name: <span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h5>
-                                <p>Location: <span class="volunteer_preferred_city">{{this.Volunteer.preferred_city}}</span></p>
-                                <p>Category: <span class="volunteer_category">{{this.category}}</span></p>
-                                <p>Specialty: <span class="volunteer_specialty">{{this.specialty}}</span></p>
-                                <p>Bio: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
+                            <div class="col s12 m1"></div>
+                            <div class="col s12 m7">
+                                <h5><span class="volunteer_name">{{this.Volunteer.volunteer_first_name}} {{this.Volunteer.volunteer_last_name}}</span></h5>
+                                <p class="bold"><i class="material-icons listing-material-icons">class</i> <span class="volunteer_category">{{this.category}}</span></p>
+                                <p class="bold"><i class="material-icons listing-material-icons">star</i> {{this.specialty}}</p>
+                                <hr class="listing-hr">
+                                <p><i class="material-icons listing-material-icons">location_on</i> <span class="volunteer_preferred_city">{{this.Volunteer.preferred_city}}</span></p>
+                                <p>How I can help: <span class="volunteer_bio">{{this.Volunteer.bio}}</span></p>
                             </div>
-                        </div>
                     </li>
+                    {{/if}}
                     {{/each}}
                 </ul>
             </div>

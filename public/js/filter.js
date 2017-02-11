@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    //click checkboxes
     $(document).on('click', '#cat-search-button', function(event) {
         var checkedBoxes = $('input[type="checkbox"]:checked');
         var categories = Array.prototype.map.call(checkedBoxes, function(obj) {
@@ -10,6 +11,8 @@ $(document).ready(function() {
         var queryString = queryStringComponents.join('');
         window.location.search += queryString;
     });
+    //populate autocomplete
+    //then submit search term
     $.ajax({
             method: 'GET',
             url: '/api/specialties',
@@ -23,10 +26,20 @@ $(document).ready(function() {
                 data: categoryData,
                 limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
             });
-            $(document).on('click', '#specialty-search-button', function(event) {
+            $(document).on('submit', '#autocomplete-form', function(event) {
+                event.preventDefault();
                 var searchTerm = $('#autocomplete-input').val();
                 window.location.search = 'spec=' + searchTerm;
             });
         });
-
+    //if no search results exist
+    (function checkResults() {
+        if ($('#listing-collapsible').html().trim() === '') {
+            var message = '<p>Your search did not match any listings.</p>' +
+                '<p>Suggestions:</p>' +
+                '<ul><li>- Make sure all words are spelled correctly.</li>' +
+                '<li>- Try a different search for category or specialty.</li></ul>';
+            $('#listings-div').html(message);
+        }
+    })();
 });
