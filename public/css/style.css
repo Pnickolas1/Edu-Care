@@ -624,12 +624,27 @@ footer.page-footer {
         font-size: 35px;
     }
     .create-account-stud {
-        font-size: 19px;
+        font-size: 17px;
     }
     .h2 {
         font-size: 25px;
     }
     .small-font-460 {
         font-size: 12px;
+    }
+    .btn-large {
+        height: 40px;
+        line-height: 40px;
+    }
+    #top-banner .h1-landing {
+        line-height: 90%;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+        font-size: 45px;
+    }
+    .logo {
+        height: 35px;
     }
 }
