@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
 
 <head>
     <meta charset="UTF-8">
@@ -37,10 +37,13 @@
     </nav>
     <main class="sign-in-background">
         <center>
-            <div class="section"></div>
-            <div class="section"></div>
+            <div class="section center-align">
+                <h1 class="raleway-font-light h1-small">Volunteers Login</h1>
+                <h6>Sign in with your registered account.</h6>
+            </div>
             <div class="container">
                 <div class="z-depth-1 grey lighten-4 row" id="sign-in">
+                    <!-- Sign in form -->
                     <form action='/login' class="col s12" method="post">
                         <div class='row'>
                             <div class='col s12'>
@@ -58,22 +61,31 @@
                                 <label class="left-align" for='password'>Password</label>
                             </div>
                             <!-- Modal Trigger -->
-                            <a class="right" href="#modal1"><b>Forgot Password</b></a>
-                            <!-- Modal Structure -->
+                            <a class="right" href="#modal1">Forgot Password?</a>
+                            <!-- Modal Structure For Forgot Password-->
                             <div id="modal1" class="modal bottom-sheet right">
                                 <div class="modal-content">
                                     <h4>You should've used LastPass</h4>
                                     <p class="center-align">In the door.</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+                                    <a class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+                                </div>
+                            </div>
+                            <!-- Modal Structure for bad login-->
+                            <div id="bad-login" class="modal bottom-sheet right">
+                                <div class="modal-content">
+                                    <p>Invalid login or password.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
                                 </div>
                             </div>
                         </div>
                         <br />
                         <center>
                             <div class='row'>
-                                <button type='submit' class='col s12 btn btn-large waves-effect'>SIGN IN</button>
+                                <button type='submit' class='col s12 btn btn-large waves-effect' id="signin-button">SIGN IN</button>
                             </div>
                             <div class="row">
                                 <a href="/register-new-user">Create Account</a>
@@ -86,7 +98,25 @@
         <div class="section"></div>
         <div class="section"></div>
     </main>
+    <!-- Footer -->
     <footer class="page-footer">
+        <div class="footer-container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Edu-care</h5>
+                    <p class="grey-text text-lighten-4">Edu-Care pairs individuals looking to volunteer their skills and expertise to schools that are looking for a helping hand.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Our Engineers</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/aishaprograms" target="_blank">Aisha Ahmad</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/a-ashbeck" target="_blank">Alan Ashbeck</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/kshiro622" target="_blank">Katie Shiro</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/Pnickolas1" target="_blank">Peter Tountas</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="footer-copyright">
             <div class="footer-container">
                 © 2017 Team Edu-care
@@ -95,12 +125,7 @@
     </footer>
     <!-- Materialize initialization -->
     <script type="text/javascript" src="js/initialization.js"></script>
-    <script type="text/javascript" src="form.js"></script>
-    <script>
-    $(document).ready(function() {
-        $('.modal').modal();
-    });
-    </script>
+    <script type="text/javascript" src="js/login.js"></script>
 </body>
 
 </html>

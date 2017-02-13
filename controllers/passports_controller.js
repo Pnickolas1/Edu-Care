@@ -15,7 +15,6 @@ module.exports = function(app) {
                 console.log(err);
                 return res.send(err);
             }
-
             res.redirect("/signin");
         });
     });
@@ -23,9 +22,8 @@ module.exports = function(app) {
     // This is the function for authenticating a user
     app.post('/login',
         passport.authenticate('local', {
-            // This handles failures
-            failureRedirect: '/signin',
-            failureFlash: true // This needs further looking into...
+            successRedirect: '/volunteer',
+            failureRedirect: '/signin?login=bad'
         }),
         function(req, res) {
             // If this function gets called, authentication was successful.

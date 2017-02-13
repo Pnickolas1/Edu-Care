@@ -9,7 +9,7 @@ $(document).ready(function() {
             return '&cat=' + cat;
         });
         var queryString = queryStringComponents.join('');
-        window.location.search += queryString;
+        window.location.search = queryString;
     });
     //populate autocomplete
     //then submit search term
@@ -29,10 +29,12 @@ $(document).ready(function() {
             $(document).on('submit', '#autocomplete-form', function(event) {
                 event.preventDefault();
                 var searchTerm = $('#autocomplete-input').val();
-                window.location.search = 'spec=' + searchTerm;
+                var specQueryString = 'spec=' + searchTerm;
+                window.location.search = specQueryString;
             });
         });
     //if no search results exist
+    // self executing function
     (function checkResults() {
         if ($('#listing-collapsible').html().trim() === '') {
             var message = '<p>Your search did not match any listings.</p>' +
