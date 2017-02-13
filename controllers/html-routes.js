@@ -1,7 +1,8 @@
+// Require dependencies
 var path = require('path');
 
+// Export HTML routes
 module.exports = function(app) {
-
     app.get("/", function(req, res) {
         res.sendFile(path.join(__dirname + "/../public/landing.html"));
     });
@@ -25,7 +26,4 @@ module.exports = function(app) {
     app.get("/signin", function(req, res) {
         res.sendFile(path.join(__dirname + "/../public/signin.html"));
     });
-
-
-
 };

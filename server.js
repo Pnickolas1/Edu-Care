@@ -7,7 +7,6 @@ var db = require('./models');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var flash = require('connect-flash');
 
 //creating instance of database for User table
 var User = db.User;
@@ -17,17 +16,18 @@ var User = db.User;
 var app = express();
 var PORT = process.env.PORT || 8000;
 
-
+// Passport methods to set up the authentication
+// strategy, serialization, and deserialization
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-app.use(bodyParser()); // -- caused error in terminal - KS
+// Middleware setup
+app.use(bodyParser());
 app.use(require('connect-multiparty')());
 app.use(cookieParser());
-app.use(session({ secret: 'super-secret' })); // -- caused error in terminal - KS
-app.use(flash());
+app.use(session({ secret: 'super-secret' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next) {
