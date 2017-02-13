@@ -3,28 +3,18 @@ var db = require('../models');
 // ROUTES
 module.exports = function(app) {
 
-    // ====== Volunteer Routes ====== //
-
-    // POST route to create new volunteer
-    app.post("/api/volunteer", ensureAuthenticated, function(req, res) {
-        db.Volunteer.create({
-            volunteer_first_name: req.body.volunteer_first_name,
-            volunteer_last_name: req.body.volunteer_last_name,
-            preferred_city: req.body.preferred_city,
-            bio: req.body.bio,
-            UserId: req.user.id
-        }).then(function(dbPost) {
-            res.redirect("/volunteer/");
-        });
-    });
-
     // ====== Listing Routes ====== //
 
-    // GET route to show all listings
+    // GET route to show all listings of volunteers
+    // Query searches are optional for this route
     app.get("/listings", function(req, res) {
         var findListings;
+        // queryCategory is the query search for the category of volunteers
         var queryCategory = req.query.cat;
+        // querySpecialty is the query search for the category of volunteers
         var querySpecialty = req.query.spec;
+        // these if-else statements assign the variable findListings to
+        // the appropriate sequelize promise
         if (queryCategory) {
             findListings = db.Listing.findAll({
                 include: [{
@@ -56,12 +46,16 @@ module.exports = function(app) {
                 }]
             });
         }
+        // after the promise findListings is resolved, listings.handlebars is 
+        // rendered
         findListings.then(function(dbRes) {
             res.render("listings", { listings: dbRes });
         });
     });
 
-    // GET route to show all listings specialties
+    // GET route to show listings of volunteers' specialties
+    // used in ajax url to retreive the specialties
+    // see public/js/filter.js for its use
     app.get("/api/specialties", function(req, res) {
         var findCategories = db.Listing.findAll({
             where: {
@@ -75,8 +69,13 @@ module.exports = function(app) {
 
     });
 
+    // =========================================================================
+
+    // ====== Volunteer Routes ====== //
+
     // GET route to show volunteer info and listings
     app.get("/volunteer", ensureAuthenticated, function(req, res) {
+        // sequelize promise to view volunteer's listings
         var listingPromise = db.Listing.findAll({
             where: {
                 UserId: req.user.id
@@ -87,6 +86,7 @@ module.exports = function(app) {
                 model: db.User
             }]
         });
+        // sequelize promise to view volunteer's info
         var volunteerPromise = db.Volunteer.findOne({
             where: {
                 UserId: req.user.id
@@ -100,8 +100,26 @@ module.exports = function(app) {
             .then(function(results) {
                 var listingResult = results[0];
                 var volunteerResult = results[1];
-                res.render("volunteer", { listings: listingResult, volunteer: volunteerResult });
+                // after promises are resolves, volunteer handlebars is rendered
+                res.render("volunteer", {
+                    listings: listingResult,
+                    volunteer: volunteerResult
+                });
             });
+    });
+
+    // POST route to create new volunteer
+    // used in public/js/newVolunteerForm.js
+    app.post("/api/volunteer", ensureAuthenticated, function(req, res) {
+        db.Volunteer.create({
+            volunteer_first_name: req.body.volunteer_first_name,
+            volunteer_last_name: req.body.volunteer_last_name,
+            preferred_city: req.body.preferred_city,
+            bio: req.body.bio,
+            UserId: req.user.id
+        }).then(function(dbPost) {
+            res.redirect("/volunteer/");
+        });
     });
 
     //POST route to create new listing
@@ -125,7 +143,7 @@ module.exports = function(app) {
     });
 
     // PUT routes for updating a listing
-    // Archive
+    // Archive listing
     app.put("/api/volunteer/listing/archive/:id", function(req, res) {
         db.Listing.update({ isActive: 0 }, {
             where: {
@@ -137,7 +155,7 @@ module.exports = function(app) {
     });
 
 
-    // Activate 
+    // Activate listing
     app.put("/api/volunteer/listing/activate/:id", function(req, res) {
         db.Listing.update({ isActive: 1 }, {
             where: {

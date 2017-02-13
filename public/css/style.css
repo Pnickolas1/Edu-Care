@@ -121,6 +121,16 @@ hr {
     margin-bottom: 0;
 }
 
+.raleway-font {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bolder;
+}
+
+.raleway-font-light {
+    font-family: 'Raleway', sans-serif;
+    font-weight: lighter;
+}
+
 
 /*Icons*/
 
@@ -333,6 +343,11 @@ footer.page-footer {
     color: white;
 }
 
+.welcome-schools h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bolder;
+}
+
 .pencils-background {
     background-image: url("../images/pencils.jpg");
     background-size: cover;
@@ -358,6 +373,11 @@ footer.page-footer {
     margin-bottom: 0;
 }
 
+.listings-header h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bolder;
+}
+
 
 /*Volunteer*/
 
@@ -368,6 +388,11 @@ footer.page-footer {
     height: 450px;
     color: white;
     margin-bottom: 0;
+}
+
+.volunteer-with-us h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bolder;
 }
 
 .globe-img {

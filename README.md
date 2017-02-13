@@ -10,7 +10,7 @@ Edu-Care pairs individuals looking to volunteer their skills and expertise to sc
 
 The application is designed as a desktop web app first, but is completely mobile friendly.
 
-* Click [**here**](https://hidden-crag-90720.herokuapp.com/) for the web app.
+* Go to [**edu-care-app**](https://edu-care-app.herokuapp.com/) for the web app.
 
 ### The Engineers
 
@@ -42,7 +42,7 @@ Create a fullstack application that would provide a meaningful service to our co
 
 ### The Business
 
-Volunteers looking to give back to educational communities can sign up with the app to post their services for schools to see. Think of it as Craigslist, but for individuals looking to specifically volunteer for education purposes at local schools. Volunteers can choose from 5 volunteer categories, and then list their specific specialty.
+Volunteers looking to give back to educational communities can sign up with the app to post their services for schools to see. Think of it as Craigslist, but for individuals looking to specifically volunteer for education purposes at local schools. Volunteers can choose from 6 volunteer categories, and then list their specific specialty.
 
 These volunteer opportunities include:
 * Speaker
@@ -50,6 +50,7 @@ These volunteer opportunities include:
 * Presentation Reviewers/Competition Judges
 * Career Guidance
 * Job Shadowing
+* General Volunteering
 
 This volunteer entry will post a listing to a filterable board for search by school administrators and teachers. Volunteers can create as many listings as they would like, and can review and update this information in their user dashboard.
 
