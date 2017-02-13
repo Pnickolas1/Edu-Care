@@ -1,5 +1,7 @@
+// Require dependencies
 var passportLocalSequelize = require('passport-local-sequelize');
 
+// Sets and exports User table model
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define('User', {
         id: {
@@ -30,11 +32,13 @@ module.exports = function(sequelize, DataTypes) {
 
     });
 
+    // Attaches Passport object to logged in user
     passportLocalSequelize.attachToUser(User, {
         usernameField: 'username',
         hashField: 'hash',
         saltField: 'salt'
     });
 
+    // Returns the User model
     return User;
 };

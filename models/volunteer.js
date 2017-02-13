@@ -1,3 +1,4 @@
+// Sets and exports the Volunteer table model
 module.exports = function(sequelize, DataTypes) {
     var Volunteer = sequelize.define('Volunteer', {
         id: {
@@ -59,5 +60,6 @@ module.exports = function(sequelize, DataTypes) {
 
     });
 
+    // Returns the Volunteer model
     return Volunteer;
 };

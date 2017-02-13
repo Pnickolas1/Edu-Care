@@ -21,7 +21,6 @@ module.exports = function(app) {
     // ====== Listing Routes ====== //
 
     // GET route to show all listings
-    // Aisha: can this be cleaned up?
     app.get("/listings", function(req, res) {
         var findListings;
         var queryCategory = req.query.cat;
@@ -149,6 +148,8 @@ module.exports = function(app) {
         });
     });
 
+    // Custom function to establish whether or not a user is logged in 
+    // in order to see a page, else get routed to the login page
     function ensureAuthenticated(req, res, next) {
         if (req.isAuthenticated())
             return next();

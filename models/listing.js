@@ -1,3 +1,4 @@
+// Sets and exports the model for the Listing table
 module.exports = function(sequelize, DataTypes) {
     var Listing = sequelize.define('Listing', {
         id: {
@@ -42,5 +43,6 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
+    // Returns the Listing model
     return Listing;
 };
